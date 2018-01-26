@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NumberProgressBar</title>
+  <link rel="stylesheet" type="text/css" href="assets/normalize.css">
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/number-pb.css">
+  <link rel="stylesheet" href="http://dreamsky.github.io/main/blog/common/init.css">
+  <style>
+  body {
+  	font-family: Verdana,Arial,Helvetica,sans-serif;
+  }
+  .top-banner a {
+  	color: #FF534E;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 style="margin-top:100px">Number Progress Bar</h1>
+
+  <section id="random">
+    <article>
+      <h4 class="title">Random</h4>
+      <div class="number-pb">
+        <div class="number-pb-shown"></div>
+        <div class="number-pb-num">0</div>
+      </div>
+    </article>
+  </section>
+
+  <section id="sample-pb">
+    <article>
+      <h4 class="title"></h4>
+      <div class="number-pb">
+        <div class="number-pb-shown"></div>
+        <div class="number-pb-num">0</div>
+      </div>
+    </article>
+    
+    <div class="control empty">0</div>
+    <div class="control minus-10">-10</div>
+    <div class="control minus-30">-30</div>
+    <div class="control plus-10">+10</div>
+    <div class="control plus-30">+30</div>
+    <div class="control full">100</div>
+  </section>
+
+  <p><a href="http://kalasoo.me">Ming YIN</a></p>
+  <p><a href="https://github.com/daimajia/NumberProgressBar">This idea</a> was originally designed by <a href="http://daimajia.com">Daimajia</a> on Andriod.</p>
+  <div class="footer-banner" style="width:728px; margin:60px auto"></div>
+</div>
+
+<script src="assets/jquery.min.js"></script>
+<script src="http://dreamsky.github.io/main/blog/common/init.js"></script>
+<script src="assets/jquery.velocity.min.js"></script>
+<script src="assets/number-pb.js"></script>
+<script>
+  $(function() {
+    function randomPercentage() {
+      return Math.floor(Math.random() * 100);
+    }
+
+    function randomInterval() {
+      var min = Math.floor(Math.random() * 100);
+      var max = min + (Math.floor(Math.random() * 40) + 20);
+      return [min, max];
+    }
+
+    function randomStyle() {
+      return ['', 'dream', 'sun'][Math.floor(Math.random() * 3)];
+    }
+
+    var interval = randomInterval();
+    var randomTitle = $('#random .title');
+    var randomBar = $('#random .number-pb').NumberProgressBar({
+        min: interval[0],
+        max: interval[1]
+      })
+    randomBar.find('.number-pb-shown').toggleClass(randomStyle());
+    randomTitle.text('Random [Min: ' + interval[0] + ', Max: ' + interval[1] + ']');
+
+    var reachLoop = function() {
+      window.setTimeout(function() {
+        randomBar.reach(undefined, {
+          complete: reachLoop
+        }).find('.number-pb-shown').toggleClass(randomStyle());
+      }, 2000);
+    }
+
+    reachLoop();
+
+    var num = randomPercentage();
+    var controlTitle = $('#sample-pb .title').text('@' + num);
+    var controlBar = $('#sample-pb .number-pb').NumberProgressBar({
+      duration: 12000,
+      current: num
+    });
+
+    var $controls = $('#sample-pb .control');
+    
+    $controls.filter('.empty'   ).click(function() { animate(0)       ; })
+    $controls.filter('.minus-10').click(function() { animate(num - 10); })
+    $controls.filter('.minus-30').click(function() { animate(num - 30); })
+    $controls.filter('.plus-10 ').click(function() { animate(num + 10); })
+    $controls.filter('.plus-30 ').click(function() { animate(num + 30); })
+    $controls.filter('.full'    ).click(function() { animate(100)     ; })
+
+    function animate(val) {
+      if (val < 0) {
+        num = 0;
+      } else if (val > 100) {
+        num = 100;
+      } else {
+        num = val
+      }
+      controlBar.reach(num);
+      controlTitle.text('@' + num);
+    }
+  });
+</script>
+</body>
+</html>

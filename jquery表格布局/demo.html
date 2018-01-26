@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery表格变色隔行变色鼠标滑过竖直表格内容变色效果</title>
+<meta name="description" content="jquery表格变色实现隔行表格变色，与滑过竖直表格变色效果。jquery表格用户体验设计。" />
+</head>
+
+<body>
+
+<style type="text/css">
+/* reset */
+*{margin:0;padding:0;list-style-type:none;}
+table{empty-cells:show;border-collapse:collapse;border-spacing:0;}
+a,img{border:0;}
+body{font:12px/180% Arial,Lucida,Verdana,"宋体",Helvetica,sans-serif;color:#333;background:#fff;}
+
+/* configure */
+.configure{width:738px;position:relative;line-height:20px;}
+.cloud-configure .tit{height:44px;line-height:44px;color:#fff;font-size:16px;font-weight:bold;font-family:'微软雅黑','幼圆';width:740px;}
+.cloud-configure .tit td{border:none;}
+.cloud-configure td{text-align:center;height:30px;vertical-align:middle;border-left:1px solid #dbdbdb;border-top:1px solid #dbdbdb;}
+
+.configure-table{position:relative;}
+.configure-table table{color:#777;border-right:1px solid #dbdbdb;border-bottom:1px solid #dbdbdb;background:url(images/configure-tit.jpg) top left no-repeat;margin-bottom:15px;}
+.configure-table .last-tr ul{display:none;margin:10px 0;position:relative; z-index:100;}
+.configure-table .last-tr input{height:26px;width:81px;line-height:26px;text-align:center;color:#004500;border:none;margin:3px 0;cursor:pointer;}
+
+.configure-border{position:absolute;z-index:9;}
+.configure-border-b{border:1px solid #f00;border-top:none;}
+.configure-bg-out{background:url(images/configure-h-l.jpg) no-repeat left top;height:44px;text-align:center;}
+.configure-bg-in{margin-left:2px;background:url(images/configure-h-r.jpg) no-repeat right top;height:44px;line-height:44px;color:#fff;font-size:16px;font-weight:bold;font-family:'微软雅黑','幼圆';}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+
+<script type="text/javascript">
+//表格 移动变换背景 显示按钮  空间页面      
+function space_table($table,$showbg,$showbgTop,$lastTr,$absolute_border,$tdWidth,$firstWidth){
+	$table.mousemove(function(e){
+		var index=$(e.target).index();
+		//如果是第一列 则return
+		if(index==0) return;
+		if(e.target.tagName!="TD"){
+			return false;
+		}
+		$showbg.css("left",((index-1)*$tdWidth+$firstWidth)+"px");
+		//获取当前td所在的列的第一个td  然后给其赋值给绝对定位的div　显示在上层
+		var firstTd_val=$table.find("tr").first().find("td").eq(index).html();
+		$showbgTop.html(firstTd_val);
+
+		//获取表格高度并赋值给绝对定位的div
+		$absolute_border.height(($table.height()-44)+"px");
+
+		//判断$lastTr参数是否为空，如果不为空，则鼠标移上去显示 ul 其它ul隐藏
+		($lastTr) && ($lastTr.find("ul").hide(),$lastTr.find("td").eq(index).children("ul").show());
+	})
+}
+
+
+$(function(){
+	space_table(
+		$("#configure-table"),    //$table--作用的表格 
+		$(".configure-border"),   //$showbg--绝对定位的div
+		$(".configure-bg-in"),    //$showbgTop--绝对定们的div中顶部的背景
+		$(".last-tr"),            //$lastTr--最后一个tr
+		$(".configure-border-b").height($("#configure-table").height()-44), 
+		123,                      //$tdWidth--每个表格的宽度
+		123                       //$firstWidth--第一列表格的宽度
+	);
+})
+</script>
+
+<div class="cloud-configure">
+	<div class="configure-table">
+		<div class="configure">
+			
+			<div class="configure-border" style="top:0;left:123px;">
+				<div class="configure-bg-out" style="width:123px;">
+					<div class="configure-bg-in">A</div>
+				</div>
+				<div class="configure-border-b" style="width:121px;"></div>
+			</div><!--configure-border end-->
+			
+			<table width="738" id="configure-table">
+				<tr class="tit">
+					<td width="123">网页特效</td>
+					<td width="123">A</td>
+					<td width="123">B</td>
+					<td width="123">C</td>
+					<td width="123">D</td>
+					<td>E</td>
+				</tr>
+				<tr style="background:#f4f4f4;">
+					<td style="font-weight:bold;">jquery 特效</td>
+					<td>200M</td>
+					<td>300M</td>
+					<td>400M</td>
+					<td>500M</td>
+					<td>100M</td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">javascript特效</td>
+					<td>200M</td>		
+					<td>300M</td>
+					<td>400M</td>
+					<td>500M</td>
+					<td>100M</td>
+				</tr>
+				<tr style="background:#f4f4f4;">
+					<td style="font-weight:bold;">flash特效</td>
+					<td>20</td>
+					<td>30</td>
+					<td>40</td>
+					<td>50</td>
+					<td>10</td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">div+css教程</td>
+					<td>100</td>
+					<td>150</td>
+					<td>200</td>
+					<td>250</td>
+					<td>50</td>
+				</tr>
+				<tr style="background:#f4f4f4;">
+					<td style="font-weight:bold;">html5教程</td>
+					<td>20G</td>
+					<td>30G</td>
+					<td>40G</td>
+					<td>50G</td>
+					<td>10G</td>
+				</tr>
+				<tr class="last-tr">
+					<td></td>
+					<td>
+						<ul style="display:block;">
+							<li><input type="button" value="加入购物车" class="space-btn" /></li>
+						</ul>
+					</td>
+					<td>
+						<ul>
+							<li><input type="button" value="加入购物车" class="space-btn" /></li>
+						</ul>
+					</td>
+					<td>
+						<ul>
+							<li><input type="button" value="加入购物车" class="space-btn" /></li>
+						</ul>
+					</td>
+					<td>
+						<ul>
+							<li><input type="button" value="加入购物车" class="space-btn" /></li>
+						</ul>
+					</td>
+					<td>
+						<ul>
+							<li><input type="button" value="加入购物车" class="space-btn" /></li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

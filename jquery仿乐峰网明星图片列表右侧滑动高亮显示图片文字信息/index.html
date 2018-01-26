@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>乐峰网带分页显示的明星专栏jquery特效</title>
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{background:#f6f6f6;color:#666;font:12px/1.5 'Tahoma';min-width:1020px;}
+
+/* star */
+.star{margin:20px auto;width:188px;height:624px;padding:2px 0 0;background:#fafafa;border:1px solid #dfddde;position:relative;}
+.star dl{position:relative;width:180px;height:61px;padding:13px 0 13px 8px;cursor:pointer;overflow:hidden;}
+.star dt{float:left;width:61px;height:61px;}
+.star dl dd{float:left;width:102px;padding:0 0 0 13px;color:#963c00;}
+.star dl dd b{display:block;padding:4px 0 0;font:bold 14px/20px '\5FAE\8F6F\96C5\9ED1';color:#333;}
+.star dl dd span{display:block;height:24px;line-height:18px;color:#999;}
+.star .next{position:absolute;right:8px;bottom:8px;width:160px;height:10px;text-align:right;}
+.star .next i{display:inline-block;margin:0 0 0 5px;width:10px;height:10px;background:url(images/common_ico.png) no-repeat;cursor:pointer;}
+.star .next .on{background-position:-14px 0px;}
+.star #starHover{position:absolute;right:-1px;width:0;height:127px;overflow:hidden;}
+.star #starHover b{display:block;width:226px;height:2667px;cursor:pointer;background:url(images/starhover.png) no-repeat;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src="images/starhover.png");_background:none;}
+</style>
+
+</head>
+<body>
+
+<div class="star" id="star">
+	<dl h="http://www.17sucai.com/">
+		<dt></dt>
+		<dd>静佳Jplus旗舰店<b>李静</b><span>著名节目主持人</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/">
+		<dt></dt>
+		<dd>欢型旗舰店<b>谢娜</b><span>著名当红主持人</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/">
+		<dt><b style="position:absolute;width:72px;background:url(images/startipxiaoP.jpg) no-repeat;height:72px;top:10px;left:5px">&#160;</b></dt>
+		<dd>即魅Jmixp旗舰店<b>小P</b><span>百变造型魔法师</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/">
+		<dt></dt>
+		<dd>肌龄JLYNN旗舰店<b>梅琳</b><span>国际时尚美学大师</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/">
+		<dt></dt>
+		<dd>净肌Jskin旗舰店<b>Kevin</b><span>亚洲美容天王</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/">
+		<dt></dt>
+		<dd>静臻JCare旗舰店<b>李晓峰</b><span>知名时尚主播</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/">
+		<dt></dt>
+		<dd>JCare珍珂儿旗舰店<b>王婧</b><span>知名时尚主播</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>JCode旗舰店<b>王芯</b><span>知名模特</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>琪肌Jmiracle旗舰店<b>游丝棋</b><span>亚洲美妆天后</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>美生贝乐旗舰店<b>金韵蓉</b><span>著名芳香疗法专家</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>斯勤旗舰店<b>斯勤</b><span>激光美容修复专家</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>芳玑旗舰店<b>尼可</b><span>资深美容专家</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>美人专门旗舰店<b>伍咏薇</b><span>香港影视明星</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>AHORA此刻旗舰店<b>王翰涛</b><span>知名时尚主播</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>喜皂旗舰店<b>宁丹琳</b><span>著名演员</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>宝拉珍选旗舰店<b>宝拉-培冈</b><span>化妆品分析第一人</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>JUNKO EYELASH<b>淳子</b><span>中国美睫女皇</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>Miss in品牌旗舰店<b>林伟华</b><span>知名设计师</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>SDV品牌旗舰店<b>李晨</b><span>著名主持人 演员</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>D2C品牌旗舰店<b>张义超</b><span>时装设计师</span></dd>
+	</dl>
+	<dl h="http://www.17sucai.com/" style="display:none">
+		<dt></dt>
+		<dd>Christopher Bu<b>卜柯文</b><span>知名设计师</span></dd>
+	</dl>
+	<p class="next">
+		<i class="on"></i>
+		<i></i>
+		<i></i>
+	</p>
+	<a href="" target="_blank" id="starHover"></a>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+//明星专栏
+(function(){
+	$('#star dl dt').each(function(i){
+		$(this).css('background','url(images/starimg.jpg) 0 ' + i * -61 +'px no-repeat').parent().attr('i',i);
+	});
+
+	var starHoverT;
+	$('#star').delegate('dl','mouseenter',function(){
+		clearTimeout(starHoverT);
+		var n = $('#star dl:visible').index($(this)),h = $(this).attr('h'),i=$(this).attr('i');
+		starHoverT = setTimeout(function(){
+			if($('#starHover').css('width') != '0px'){
+				var curY = $('#starHover').css('top').replace('px','');
+				var oneY = curY > n * 87 ? 24 : 10,
+				twoY = oneY == 10 ? 24 : 10;
+				$('#starHover').stop().animate({'top':n * 87 - oneY},100).animate({'top':n * 87 - twoY},100).animate({'top':n * 87 - 18},50);
+			}else{
+				$('#starHover').css({'top':n * 87 - 18}).html('<b></b>');
+				$('#starHover').animate({'width':226},200);
+			}
+			$('#starHover b').css('margin-top',i * -127).parent().attr('href',h);
+		},200);
+	});
+	
+	$('#star').mouseleave(function(){
+		clearTimeout(starHoverT);
+		$('#starHover').animate({'width':0},200);
+	});
+
+	$('#star .next').mouseenter(function(){
+		$('#star').trigger('mouseleave');
+	});
+	var starAnim = false;
+	$('#star .next i').mouseenter(function(){
+		if(starAnim || $(this).hasClass('on')) return false;
+		starAnim = true;
+		$('#star .next i').removeClass('on');
+		var i = $(this).addClass('on').index();
+		$('#star dl:visible').slideUp(200,function(){
+			starAnim = false;
+		});
+		$('#star dl').slice(i * 7,i * 7 + 7).slideDown(200);
+	});
+})();
+</script>
+</body>
+</html>

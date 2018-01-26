@@ -1,0 +1,9 @@
+@charset "utf-8";
+div#main{margin:0 auto;width:600px;height:420px;position:relative;}
+div#comment{font-size:12px;line-height:18px;padding-left:20px;}
+div#address{color:#690;font-size:12px;padding-top:10px;padding-left:20px;}
+div.key{position: absolute;float:left;top:40px;text-align: center;font-size:16px;background-position: bottom left;background-repeat: repeat-x;}
+div.whiteKey{width:60px;height:360px;color:#666;background-color:#eee;border: 2px solid #999;background-image:url("image/key_back_white.png");}
+div.blackKey{width:36px;height:200px;color:#ccc;background-color:#666;border: 2px solid #666;background-image:url("image/key_back_black.png");}
+div.whiteKey span{background-color: #444;position: relative;top: 500px;}
+div.blackKey span{position: relative;top: -50px;}

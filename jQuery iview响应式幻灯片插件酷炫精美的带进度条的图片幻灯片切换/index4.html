@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>iView&trade; v2.0</title>
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+a{text-decoration:none;color:#d0d9de;}
+a:hover{color:#FFF;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+/* topmenu */
+#topmenu{width:810px;margin:30px auto 0 auto;height:40px;position:relative;}
+#topmenu ul{margin:0;padding:0;}
+#topmenu ul li{float:left;font-size:12px;list-style:none;background:#222;position:relative;text-align:center;text-transform:uppercase;width:70px;margin:0 10px;display:inline;line-height:30px;}
+#topmenu ul li a{color:#aaa;text-decoration:none;}
+#topmenu ul li a:hover{color:#fff;}
+#topmenu ul li.active a{color:#fff;font-weight:800;}
+</style> 
+
+<link rel="stylesheet" href="css/iview.css" />
+<link rel="stylesheet" href="css/skin4/style.css" />
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/raphael-min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.js"></script>
+<script type="text/javascript" src="js/iview.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#iview').iView({
+		pauseTime: 7000,
+		pauseOnHover: true,
+		directionNavHoverOpacity: 0,
+		timer: "Bar",
+		timerDiameter: "50%",
+		timerPadding: 0,
+		timerStroke: 7,
+		timerBarStroke: 0,
+		timerColor: "#FFF",
+		timerPosition: "bottom-right"
+	});
+});
+</script>
+</head>
+
+<body>
+
+<div style="background:url(img/bckg.jpg) no-repeat 50% 50%;height:600px;overflow:hidden;">
+
+<div id="topmenu">
+	<ul>
+		<li><a href="index.html">实例一</a></li>
+		<li><a href="index2.html">实例二</a></li>
+		<li><a href="index3.html">实例三</a></li>
+		<li class="active"><a href="index4.html">实例四</a></li>
+		<li><a href="index5.html">实例五</a></li>
+	</ul>
+</div>
+
+	<div class="container">
+		<div id="iview">
+			<div data-iview:thumbnail="photos/photo11_thumb.jpg" data-iview:image="photos/photo11.jpg">
+				<div class="iview-caption caption1" data-x="100" data-y="300" data-transition="expandDown">FINE TUNED, SLEEK & SMOOTH, THIS SLIDER WILL IMPRESS YOUR VISITORS</div>
+			</div>
+		
+			<div data-iview:thumbnail="photos/photo12_thumb.jpg" data-iview:image="photos/photo12.jpg" data-iview:transition="block-drop-random" data-iview:pausetime="2000">
+				<div class="iview-caption caption2" data-x="50" data-y="320" data-transition="expandRight">SUPPORTS ANIMATED CAPTIONS, VIDEO & IFRAME, SINGLE PAGE MULTI-USE</div>
+			</div>
+		
+			<div data-iview:thumbnail="photos/photo13_thumb.jpg" data-iview:image="photos/photo13.jpg">
+				<div class="iview-caption caption3" data-x="350" data-y="300" data-transition="expandLeft">GORGEOUS ANIMATED TIMERS WITH HIGH CUSTOMIZABLE OPTIONS</div>
+			</div>
+		
+			<div data-iview:thumbnail="photos/photo14_thumb.jpg" data-iview:image="photos/photo14.jpg"></div>
+		</div>
+	</div>
+
+</div>
+
+</body>
+</html>

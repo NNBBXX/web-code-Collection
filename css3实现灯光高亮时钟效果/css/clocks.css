@@ -1,0 +1,983 @@
+*{
+    margin:0;
+    padding:0;
+}
+body {
+    background: url(blackBg.png) repeat;
+}
+a{
+    text-decoration: none;
+}
+
+
+
+@-webkit-keyframes halo {
+    from { box-shadow:0 0 30px #eee; }
+    60% { box-shadow:0 0 180px #fff; }
+    to { box-shadow:0 0 30px #eee; }
+}
+@-moz-keyframes halo {
+    from { box-shadow:0 0 30px #eee; }
+    60% { box-shadow:0 0 180px #fff; }
+    to { box-shadow:0 0 30px #eee; }
+}
+
+#clock {
+    margin: 50px auto;
+    background: #fff url(clock.png) no-repeat 0 0;
+    width: 500px;
+    height: 500px;
+    position: relative;
+
+    -webkit-border-radius: 250px;
+    -moz-border-radius: 250px;
+    -ms-border-radius: 250px;
+    -o-border-radius: 250px;
+    border-radius: 250px;
+
+    -webkit-box-shadow: 0 0 30px #fff;
+    -moz-box-shadow: 0 0 30px #fff;
+    -ms-box-shadow: 0 0 30px #fff;
+    -o-box-shadow: 0 0 30px #fff;
+    box-shadow: 0 0 30px #fff;
+
+    -webkit-animation:halo 4s ease-in-out infinite;
+    -moz-animation:halo 4s ease-in-out infinite;
+
+}
+
+/* seconds */
+@-webkit-keyframes secs_effect {
+    0% {opacity: 1;}
+    1.66% {opacity: 1;}
+    1.67% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@-moz-keyframes secs_effect {
+    0% {opacity: 1;}
+    1.66% {opacity: 1;}
+    1.67% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+#clock  .secs {
+    height: 400px;
+    left: 155px;
+    position: absolute;
+    top: 249px;
+    width: 400px;
+}
+#clock  .secs div {
+    background-color: #009;
+    height: 2px;
+    opacity: 0;
+    position: absolute;
+    width: 190px;
+
+    -moz-animation-name: secs_effect;
+    -moz-animation-duration: 60s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: normal;
+    -moz-animation-delay: 0;
+    -moz-animation-play-state: running;
+    -moz-animation-fill-mode: forwards;
+
+    -webkit-animation-name: secs_effect;
+    -webkit-animation-duration: 60s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+    -webkit-animation-delay: 0;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: forwards;
+}
+
+#clock #s1 {
+-moz-transform: rotate(-90deg) translatex(130px);
+-moz-animation-delay: 0s;
+-webkit-transform: rotate(-90deg) translatex(130px);
+-webkit-animation-delay: 0s;
+}
+#clock #s2 {
+-moz-transform: rotate(-84deg) translatex(130px);
+-moz-animation-delay: 1s;
+-webkit-transform: rotate(-84deg) translatex(130px);
+-webkit-animation-delay: 1s;
+}
+#clock #s3 {
+-moz-transform: rotate(-78deg) translatex(130px);
+-moz-animation-delay: 2s;
+-webkit-transform: rotate(-78deg) translatex(130px);
+-webkit-animation-delay: 2s;
+}
+#clock #s4 {
+-moz-transform: rotate(-72deg) translatex(130px);
+-moz-animation-delay: 3s;
+-webkit-transform: rotate(-72deg) translatex(130px);
+-webkit-animation-delay: 3s;
+}
+#clock #s5 {
+-moz-transform: rotate(-66deg) translatex(130px);
+-moz-animation-delay: 4s;
+-webkit-transform: rotate(-66deg) translatex(130px);
+-webkit-animation-delay: 4s;
+}
+#clock #s6 {
+-moz-transform: rotate(-60deg) translatex(130px);
+-moz-animation-delay: 5s;
+-webkit-transform: rotate(-60deg) translatex(130px);
+-webkit-animation-delay: 5s;
+}
+#clock #s7 {
+-moz-transform: rotate(-54deg) translatex(130px);
+-moz-animation-delay: 6s;
+-webkit-transform: rotate(-54deg) translatex(130px);
+-webkit-animation-delay: 6s;
+}
+#clock #s8 {
+-moz-transform: rotate(-48deg) translatex(130px);
+-moz-animation-delay: 7s;
+-webkit-transform: rotate(-48deg) translatex(130px);
+-webkit-animation-delay: 7s;
+}
+#clock #s9 {
+-moz-transform: rotate(-42deg) translatex(130px);
+-moz-animation-delay: 8s;
+-webkit-transform: rotate(-42deg) translatex(130px);
+-webkit-animation-delay: 8s;
+}
+#clock #s10 {
+-moz-transform: rotate(-36deg) translatex(130px);
+-moz-animation-delay: 9s;
+-webkit-transform: rotate(-36deg) translatex(130px);
+-webkit-animation-delay: 9s;
+}
+#clock #s11 {
+-moz-transform: rotate(-30deg) translatex(130px);
+-moz-animation-delay: 10s;
+-webkit-transform: rotate(-30deg) translatex(130px);
+-webkit-animation-delay: 10s;
+}
+#clock #s12 {
+-moz-transform: rotate(-24deg) translatex(130px);
+-moz-animation-delay: 11s;
+-webkit-transform: rotate(-24deg) translatex(130px);
+-webkit-animation-delay: 11s;
+}
+#clock #s13 {
+-moz-transform: rotate(-18deg) translatex(130px);
+-moz-animation-delay: 12s;
+-webkit-transform: rotate(-18deg) translatex(130px);
+-webkit-animation-delay: 12s;
+}
+#clock #s14 {
+-moz-transform: rotate(-12deg) translatex(130px);
+-moz-animation-delay: 13s;
+-webkit-transform: rotate(-12deg) translatex(130px);
+-webkit-animation-delay: 13s;
+}
+#clock #s15 {
+-moz-transform: rotate(-6deg) translatex(130px);
+-moz-animation-delay: 14s;
+-webkit-transform: rotate(-6deg) translatex(130px);
+-webkit-animation-delay: 14s;
+}
+#clock #s16 {
+-moz-transform: rotate(0deg) translatex(130px);
+-moz-animation-delay: 15s;
+-webkit-transform: rotate(0deg) translatex(130px);
+-webkit-animation-delay: 15s;
+}
+#clock #s17 {
+-moz-transform: rotate(6deg) translatex(130px);
+-moz-animation-delay: 16s;
+-webkit-transform: rotate(6deg) translatex(130px);
+-webkit-animation-delay: 16s;
+}
+#clock #s18 {
+-moz-transform: rotate(12deg) translatex(130px);
+-moz-animation-delay: 17s;
+-webkit-transform: rotate(12deg) translatex(130px);
+-webkit-animation-delay: 17s;
+}
+#clock #s19 {
+-moz-transform: rotate(18deg) translatex(130px);
+-moz-animation-delay: 18s;
+-webkit-transform: rotate(18deg) translatex(130px);
+-webkit-animation-delay: 18s;
+}
+#clock #s20 {
+-moz-transform: rotate(24deg) translatex(130px);
+-moz-animation-delay: 19s;
+-webkit-transform: rotate(24deg) translatex(130px);
+-webkit-animation-delay: 19s;
+}
+#clock #s21 {
+-moz-transform: rotate(30deg) translatex(130px);
+-moz-animation-delay: 20s;
+-webkit-transform: rotate(30deg) translatex(130px);
+-webkit-animation-delay: 20s;
+}
+#clock #s22 {
+-moz-transform: rotate(36deg) translatex(130px);
+-moz-animation-delay: 21s;
+-webkit-transform: rotate(36deg) translatex(130px);
+-webkit-animation-delay: 21s;
+}
+#clock #s23 {
+-moz-transform: rotate(42deg) translatex(130px);
+-moz-animation-delay: 22s;
+-webkit-transform: rotate(42deg) translatex(130px);
+-webkit-animation-delay: 22s;
+}
+#clock #s24 {
+-moz-transform: rotate(48deg) translatex(130px);
+-moz-animation-delay: 23s;
+-webkit-transform: rotate(48deg) translatex(130px);
+-webkit-animation-delay: 23s;
+}
+#clock #s25 {
+-moz-transform: rotate(54deg) translatex(130px);
+-moz-animation-delay: 24s;
+-webkit-transform: rotate(54deg) translatex(130px);
+-webkit-animation-delay: 24s;
+}
+#clock #s26 {
+-moz-transform: rotate(60deg) translatex(130px);
+-moz-animation-delay: 25s;
+-webkit-transform: rotate(60deg) translatex(130px);
+-webkit-animation-delay: 25s;
+}
+#clock #s27 {
+-moz-transform: rotate(66deg) translatex(130px);
+-moz-animation-delay: 26s;
+-webkit-transform: rotate(66deg) translatex(130px);
+-webkit-animation-delay: 26s;
+}
+#clock #s28 {
+-moz-transform: rotate(72deg) translatex(130px);
+-moz-animation-delay: 27s;
+-webkit-transform: rotate(72deg) translatex(130px);
+-webkit-animation-delay: 27s;
+}
+#clock #s29 {
+-moz-transform: rotate(78deg) translatex(130px);
+-moz-animation-delay: 28s;
+-webkit-transform: rotate(78deg) translatex(130px);
+-webkit-animation-delay: 28s;
+}
+#clock #s30 {
+-moz-transform: rotate(84deg) translatex(130px);
+-moz-animation-delay: 29s;
+-webkit-transform: rotate(84deg) translatex(130px);
+-webkit-animation-delay: 29s;
+}
+#clock #s31 {
+-moz-transform: rotate(90deg) translatex(130px);
+-moz-animation-delay: 30s;
+-webkit-transform: rotate(90deg) translatex(130px);
+-webkit-animation-delay: 30s;
+}
+#clock #s32 {
+-moz-transform: rotate(96deg) translatex(130px);
+-moz-animation-delay: 31s;
+-webkit-transform: rotate(96deg) translatex(130px);
+-webkit-animation-delay: 31s;
+}
+#clock #s33 {
+-moz-transform: rotate(102deg) translatex(130px);
+-moz-animation-delay: 32s;
+-webkit-transform: rotate(102deg) translatex(130px);
+-webkit-animation-delay: 32s;
+}
+#clock #s34 {
+-moz-transform: rotate(108deg) translatex(130px);
+-moz-animation-delay: 33s;
+-webkit-transform: rotate(108deg) translatex(130px);
+-webkit-animation-delay: 33s;
+}
+#clock #s35 {
+-moz-transform: rotate(114deg) translatex(130px);
+-moz-animation-delay: 34s;
+-webkit-transform: rotate(114deg) translatex(130px);
+-webkit-animation-delay: 34s;
+}
+#clock #s36 {
+-moz-transform: rotate(120deg) translatex(130px);
+-moz-animation-delay: 35s;
+-webkit-transform: rotate(120deg) translatex(130px);
+-webkit-animation-delay: 35s;
+}
+#clock #s37 {
+-moz-transform: rotate(126deg) translatex(130px);
+-moz-animation-delay: 36s;
+-webkit-transform: rotate(126deg) translatex(130px);
+-webkit-animation-delay: 36s;
+}
+#clock #s38 {
+-moz-transform: rotate(132deg) translatex(130px);
+-moz-animation-delay: 37s;
+-webkit-transform: rotate(132deg) translatex(130px);
+-webkit-animation-delay: 37s;
+}
+#clock #s39 {
+-moz-transform: rotate(138deg) translatex(130px);
+-moz-animation-delay: 38s;
+-webkit-transform: rotate(138deg) translatex(130px);
+-webkit-animation-delay: 38s;
+}
+#clock #s40 {
+-moz-transform: rotate(144deg) translatex(130px);
+-moz-animation-delay: 39s;
+-webkit-transform: rotate(144deg) translatex(130px);
+-webkit-animation-delay: 39s;
+}
+#clock #s41 {
+-moz-transform: rotate(150deg) translatex(130px);
+-moz-animation-delay: 40s;
+-webkit-transform: rotate(150deg) translatex(130px);
+-webkit-animation-delay: 40s;
+}
+#clock #s42 {
+-moz-transform: rotate(156deg) translatex(130px);
+-moz-animation-delay: 41s;
+-webkit-transform: rotate(156deg) translatex(130px);
+-webkit-animation-delay: 41s;
+}
+#clock #s43 {
+-moz-transform: rotate(162deg) translatex(130px);
+-moz-animation-delay: 42s;
+-webkit-transform: rotate(162deg) translatex(130px);
+-webkit-animation-delay: 42s;
+}
+#clock #s44 {
+-moz-transform: rotate(168deg) translatex(130px);
+-moz-animation-delay: 43s;
+-webkit-transform: rotate(168deg) translatex(130px);
+-webkit-animation-delay: 43s;
+}
+#clock #s45 {
+-moz-transform: rotate(174deg) translatex(130px);
+-moz-animation-delay: 44s;
+-webkit-transform: rotate(174deg) translatex(130px);
+-webkit-animation-delay: 44s;
+}
+#clock #s46 {
+-moz-transform: rotate(180deg) translatex(130px);
+-moz-animation-delay: 45s;
+-webkit-transform: rotate(180deg) translatex(130px);
+-webkit-animation-delay: 45s;
+}
+#clock #s47 {
+-moz-transform: rotate(186deg) translatex(130px);
+-moz-animation-delay: 46s;
+-webkit-transform: rotate(186deg) translatex(130px);
+-webkit-animation-delay: 46s;
+}
+#clock #s48 {
+-moz-transform: rotate(192deg) translatex(130px);
+-moz-animation-delay: 47s;
+-webkit-transform: rotate(192deg) translatex(130px);
+-webkit-animation-delay: 47s;
+}
+#clock #s49 {
+-moz-transform: rotate(198deg) translatex(130px);
+-moz-animation-delay: 48s;
+-webkit-transform: rotate(198deg) translatex(130px);
+-webkit-animation-delay: 48s;
+}
+#clock #s50 {
+-moz-transform: rotate(204deg) translatex(130px);
+-moz-animation-delay: 49s;
+-webkit-transform: rotate(204deg) translatex(130px);
+-webkit-animation-delay: 49s;
+}
+#clock #s51 {
+-moz-transform: rotate(210deg) translatex(130px);
+-moz-animation-delay: 50s;
+-webkit-transform: rotate(210deg) translatex(130px);
+-webkit-animation-delay: 50s;
+}
+#clock #s52 {
+-moz-transform: rotate(216deg) translatex(130px);
+-moz-animation-delay: 51s;
+-webkit-transform: rotate(216deg) translatex(130px);
+-webkit-animation-delay: 51s;
+}
+#clock #s53 {
+-moz-transform: rotate(222deg) translatex(130px);
+-moz-animation-delay: 52s;
+-webkit-transform: rotate(222deg) translatex(130px);
+-webkit-animation-delay: 52s;
+}
+#clock #s54 {
+-moz-transform: rotate(228deg) translatex(130px);
+-moz-animation-delay: 53s;
+-webkit-transform: rotate(228deg) translatex(130px);
+-webkit-animation-delay: 53s;
+}
+#clock #s55 {
+-moz-transform: rotate(234deg) translatex(130px);
+-moz-animation-delay: 54s;
+-webkit-transform: rotate(234deg) translatex(130px);
+-webkit-animation-delay: 54s;
+}
+#clock #s56 {
+-moz-transform: rotate(240deg) translatex(130px);
+-moz-animation-delay: 55s;
+-webkit-transform: rotate(240deg) translatex(130px);
+-webkit-animation-delay: 55s;
+}
+#clock #s57 {
+-moz-transform: rotate(246deg) translatex(130px);
+-moz-animation-delay: 56s;
+-webkit-transform: rotate(246deg) translatex(130px);
+-webkit-animation-delay: 56s;
+}
+#clock #s58 {
+-moz-transform: rotate(252deg) translatex(130px);
+-moz-animation-delay: 57s;
+-webkit-transform: rotate(252deg) translatex(130px);
+-webkit-animation-delay: 57s;
+}
+#clock #s59 {
+-moz-transform: rotate(258deg) translatex(130px);
+-moz-animation-delay: 58s;
+-webkit-transform: rotate(258deg) translatex(130px);
+-webkit-animation-delay: 58s;
+}
+#clock #s60 {
+-moz-transform: rotate(264deg) translatex(130px);
+-moz-animation-delay: 59s;
+-webkit-transform: rotate(264deg) translatex(130px);
+-webkit-animation-delay: 59s;
+}
+
+/* minutes */
+@-webkit-keyframes mins_effect {
+    0% {opacity: 1;}
+    1.66% {opacity: 1;}
+    1.67% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@-moz-keyframes mins_effect {
+    0% {opacity: 1;}
+    1.66% {opacity: 1;}
+    1.67% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+#clock  .mins {
+    height: 300px;
+    left: 175px;
+    position: absolute;
+    top: 249px;
+    width: 300px;
+}
+#clock  .mins div {
+    background-color: #4DB849;
+    height: 4px;
+    opacity: 0;
+    position: absolute;
+    width: 150px;
+
+    -moz-animation-name: mins_effect;
+    -moz-animation-duration: 3600s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: normal;
+    -moz-animation-delay: 0;
+    -moz-animation-play-state: running;
+    -moz-animation-fill-mode: forwards;
+
+    -webkit-animation-name: mins_effect;
+    -webkit-animation-duration: 3600s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+    -webkit-animation-delay: 0;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: forwards;
+}
+
+#clock #m1 {
+-moz-transform: rotate(-90deg) translatex(110px);
+-moz-animation-delay: 0s;
+-webkit-transform: rotate(-90deg) translatex(110px);
+-webkit-animation-delay: 0s;
+}
+#clock #m2 {
+-moz-transform: rotate(-84deg) translatex(110px);
+-moz-animation-delay: 60s;
+-webkit-transform: rotate(-84deg) translatex(110px);
+-webkit-animation-delay: 60s;
+}
+#clock #m3 {
+-moz-transform: rotate(-78deg) translatex(110px);
+-moz-animation-delay: 120s;
+-webkit-transform: rotate(-78deg) translatex(110px);
+-webkit-animation-delay: 120s;
+}
+#clock #m4 {
+-moz-transform: rotate(-72deg) translatex(110px);
+-moz-animation-delay: 180s;
+-webkit-transform: rotate(-72deg) translatex(110px);
+-webkit-animation-delay: 180s;
+}
+#clock #m5 {
+-moz-transform: rotate(-66deg) translatex(110px);
+-moz-animation-delay: 240s;
+-webkit-transform: rotate(-66deg) translatex(110px);
+-webkit-animation-delay: 240s;
+}
+#clock #m6 {
+-moz-transform: rotate(-60deg) translatex(110px);
+-moz-animation-delay: 300s;
+-webkit-transform: rotate(-60deg) translatex(110px);
+-webkit-animation-delay: 300s;
+}
+#clock #m7 {
+-moz-transform: rotate(-54deg) translatex(110px);
+-moz-animation-delay: 360s;
+-webkit-transform: rotate(-54deg) translatex(110px);
+-webkit-animation-delay: 360s;
+}
+#clock #m8 {
+-moz-transform: rotate(-48deg) translatex(110px);
+-moz-animation-delay: 420s;
+-webkit-transform: rotate(-48deg) translatex(110px);
+-webkit-animation-delay: 420s;
+}
+#clock #m9 {
+-moz-transform: rotate(-42deg) translatex(110px);
+-moz-animation-delay: 480s;
+-webkit-transform: rotate(-42deg) translatex(110px);
+-webkit-animation-delay: 480s;
+}
+#clock #m10 {
+-moz-transform: rotate(-36deg) translatex(110px);
+-moz-animation-delay: 540s;
+-webkit-transform: rotate(-36deg) translatex(110px);
+-webkit-animation-delay: 540s;
+}
+#clock #m11 {
+-moz-transform: rotate(-30deg) translatex(110px);
+-moz-animation-delay: 600s;
+-webkit-transform: rotate(-30deg) translatex(110px);
+-webkit-animation-delay: 600s;
+}
+#clock #m12 {
+-moz-transform: rotate(-24deg) translatex(110px);
+-moz-animation-delay: 660s;
+-webkit-transform: rotate(-24deg) translatex(110px);
+-webkit-animation-delay: 660s;
+}
+#clock #m13 {
+-moz-transform: rotate(-18deg) translatex(110px);
+-moz-animation-delay: 720s;
+-webkit-transform: rotate(-18deg) translatex(110px);
+-webkit-animation-delay: 720s;
+}
+#clock #m14 {
+-moz-transform: rotate(-12deg) translatex(110px);
+-moz-animation-delay: 780s;
+-webkit-transform: rotate(-12deg) translatex(110px);
+-webkit-animation-delay: 780s;
+}
+#clock #m15 {
+-moz-transform: rotate(-6deg) translatex(110px);
+-moz-animation-delay: 840s;
+-webkit-transform: rotate(-6deg) translatex(110px);
+-webkit-animation-delay: 840s;
+}
+#clock #m16 {
+-moz-transform: rotate(0deg) translatex(110px);
+-moz-animation-delay: 900s;
+-webkit-transform: rotate(0deg) translatex(110px);
+-webkit-animation-delay: 900s;
+}
+#clock #m17 {
+-moz-transform: rotate(6deg) translatex(110px);
+-moz-animation-delay: 960s;
+-webkit-transform: rotate(6deg) translatex(110px);
+-webkit-animation-delay: 960s;
+}
+#clock #m18 {
+-moz-transform: rotate(12deg) translatex(110px);
+-moz-animation-delay: 1020s;
+-webkit-transform: rotate(12deg) translatex(110px);
+-webkit-animation-delay: 1020s;
+}
+#clock #m19 {
+-moz-transform: rotate(18deg) translatex(110px);
+-moz-animation-delay: 1080s;
+-webkit-transform: rotate(18deg) translatex(110px);
+-webkit-animation-delay: 1080s;
+}
+#clock #m20 {
+-moz-transform: rotate(24deg) translatex(110px);
+-moz-animation-delay: 1140s;
+-webkit-transform: rotate(24deg) translatex(110px);
+-webkit-animation-delay: 1140s;
+}
+#clock #m21 {
+-moz-transform: rotate(30deg) translatex(110px);
+-moz-animation-delay: 1200s;
+-webkit-transform: rotate(30deg) translatex(110px);
+-webkit-animation-delay: 1200s;
+}
+#clock #m22 {
+-moz-transform: rotate(36deg) translatex(110px);
+-moz-animation-delay: 1260s;
+-webkit-transform: rotate(36deg) translatex(110px);
+-webkit-animation-delay: 1260s;
+}
+#clock #m23 {
+-moz-transform: rotate(42deg) translatex(110px);
+-moz-animation-delay: 1320s;
+-webkit-transform: rotate(42deg) translatex(110px);
+-webkit-animation-delay: 1320s;
+}
+#clock #m24 {
+-moz-transform: rotate(48deg) translatex(110px);
+-moz-animation-delay: 1380s;
+-webkit-transform: rotate(48deg) translatex(110px);
+-webkit-animation-delay: 1380s;
+}
+#clock #m25 {
+-moz-transform: rotate(54deg) translatex(110px);
+-moz-animation-delay: 1440s;
+-webkit-transform: rotate(54deg) translatex(110px);
+-webkit-animation-delay: 1440s;
+}
+#clock #m26 {
+-moz-transform: rotate(60deg) translatex(110px);
+-moz-animation-delay: 1500s;
+-webkit-transform: rotate(60deg) translatex(110px);
+-webkit-animation-delay: 1500s;
+}
+#clock #m27 {
+-moz-transform: rotate(66deg) translatex(110px);
+-moz-animation-delay: 1560s;
+-webkit-transform: rotate(66deg) translatex(110px);
+-webkit-animation-delay: 1560s;
+}
+#clock #m28 {
+-moz-transform: rotate(72deg) translatex(110px);
+-moz-animation-delay: 1620s;
+-webkit-transform: rotate(72deg) translatex(110px);
+-webkit-animation-delay: 1620s;
+}
+#clock #m29 {
+-moz-transform: rotate(78deg) translatex(110px);
+-moz-animation-delay: 1680s;
+-webkit-transform: rotate(78deg) translatex(110px);
+-webkit-animation-delay: 1680s;
+}
+#clock #m30 {
+-moz-transform: rotate(84deg) translatex(110px);
+-moz-animation-delay: 1740s;
+-webkit-transform: rotate(84deg) translatex(110px);
+-webkit-animation-delay: 1740s;
+}
+#clock #m31 {
+-moz-transform: rotate(90deg) translatex(110px);
+-moz-animation-delay: 1800s;
+-webkit-transform: rotate(90deg) translatex(110px);
+-webkit-animation-delay: 1800s;
+}
+#clock #m32 {
+-moz-transform: rotate(96deg) translatex(110px);
+-moz-animation-delay: 1860s;
+-webkit-transform: rotate(96deg) translatex(110px);
+-webkit-animation-delay: 1860s;
+}
+#clock #m33 {
+-moz-transform: rotate(102deg) translatex(110px);
+-moz-animation-delay: 1920s;
+-webkit-transform: rotate(102deg) translatex(110px);
+-webkit-animation-delay: 1920s;
+}
+#clock #m34 {
+-moz-transform: rotate(108deg) translatex(110px);
+-moz-animation-delay: 1980s;
+-webkit-transform: rotate(108deg) translatex(110px);
+-webkit-animation-delay: 1980s;
+}
+#clock #m35 {
+-moz-transform: rotate(114deg) translatex(110px);
+-moz-animation-delay: 2040s;
+-webkit-transform: rotate(114deg) translatex(110px);
+-webkit-animation-delay: 2040s;
+}
+#clock #m36 {
+-moz-transform: rotate(120deg) translatex(110px);
+-moz-animation-delay: 2100s;
+-webkit-transform: rotate(120deg) translatex(110px);
+-webkit-animation-delay: 2100s;
+}
+#clock #m37 {
+-moz-transform: rotate(126deg) translatex(110px);
+-moz-animation-delay: 2160s;
+-webkit-transform: rotate(126deg) translatex(110px);
+-webkit-animation-delay: 2160s;
+}
+#clock #m38 {
+-moz-transform: rotate(132deg) translatex(110px);
+-moz-animation-delay: 2220s;
+-webkit-transform: rotate(132deg) translatex(110px);
+-webkit-animation-delay: 2220s;
+}
+#clock #m39 {
+-moz-transform: rotate(138deg) translatex(110px);
+-moz-animation-delay: 2280s;
+-webkit-transform: rotate(138deg) translatex(110px);
+-webkit-animation-delay: 2280s;
+}
+#clock #m40 {
+-moz-transform: rotate(144deg) translatex(110px);
+-moz-animation-delay: 2340s;
+-webkit-transform: rotate(144deg) translatex(110px);
+-webkit-animation-delay: 2340s;
+}
+#clock #m41 {
+-moz-transform: rotate(150deg) translatex(110px);
+-moz-animation-delay: 2400s;
+-webkit-transform: rotate(150deg) translatex(110px);
+-webkit-animation-delay: 2400s;
+}
+#clock #m42 {
+-moz-transform: rotate(156deg) translatex(110px);
+-moz-animation-delay: 2460s;
+-webkit-transform: rotate(156deg) translatex(110px);
+-webkit-animation-delay: 2460s;
+}
+#clock #m43 {
+-moz-transform: rotate(162deg) translatex(110px);
+-moz-animation-delay: 2520s;
+-webkit-transform: rotate(162deg) translatex(110px);
+-webkit-animation-delay: 2520s;
+}
+#clock #m44 {
+-moz-transform: rotate(168deg) translatex(110px);
+-moz-animation-delay: 2580s;
+-webkit-transform: rotate(168deg) translatex(110px);
+-webkit-animation-delay: 2580s;
+}
+#clock #m45 {
+-moz-transform: rotate(174deg) translatex(110px);
+-moz-animation-delay: 2640s;
+-webkit-transform: rotate(174deg) translatex(110px);
+-webkit-animation-delay: 2640s;
+}
+#clock #m46 {
+-moz-transform: rotate(180deg) translatex(110px);
+-moz-animation-delay: 2700s;
+-webkit-transform: rotate(180deg) translatex(110px);
+-webkit-animation-delay: 2700s;
+}
+#clock #m47 {
+-moz-transform: rotate(186deg) translatex(110px);
+-moz-animation-delay: 2760s;
+-webkit-transform: rotate(186deg) translatex(110px);
+-webkit-animation-delay: 2760s;
+}
+#clock #m48 {
+-moz-transform: rotate(192deg) translatex(110px);
+-moz-animation-delay: 2820s;
+-webkit-transform: rotate(192deg) translatex(110px);
+-webkit-animation-delay: 2820s;
+}
+#clock #m49 {
+-moz-transform: rotate(198deg) translatex(110px);
+-moz-animation-delay: 2880s;
+-webkit-transform: rotate(198deg) translatex(110px);
+-webkit-animation-delay: 2880s;
+}
+#clock #m50 {
+-moz-transform: rotate(204deg) translatex(110px);
+-moz-animation-delay: 2940s;
+-webkit-transform: rotate(204deg) translatex(110px);
+-webkit-animation-delay: 2940s;
+}
+#clock #m51 {
+-moz-transform: rotate(210deg) translatex(110px);
+-moz-animation-delay: 3000s;
+-webkit-transform: rotate(210deg) translatex(110px);
+-webkit-animation-delay: 3000s;
+}
+#clock #m52 {
+-moz-transform: rotate(216deg) translatex(110px);
+-moz-animation-delay: 3060s;
+-webkit-transform: rotate(216deg) translatex(110px);
+-webkit-animation-delay: 3060s;
+}
+#clock #m53 {
+-moz-transform: rotate(222deg) translatex(110px);
+-moz-animation-delay: 3120s;
+-webkit-transform: rotate(222deg) translatex(110px);
+-webkit-animation-delay: 3120s;
+}
+#clock #m54 {
+-moz-transform: rotate(228deg) translatex(110px);
+-moz-animation-delay: 3180s;
+-webkit-transform: rotate(228deg) translatex(110px);
+-webkit-animation-delay: 3180s;
+}
+#clock #m55 {
+-moz-transform: rotate(234deg) translatex(110px);
+-moz-animation-delay: 3240s;
+-webkit-transform: rotate(234deg) translatex(110px);
+-webkit-animation-delay: 3240s;
+}
+#clock #m56 {
+-moz-transform: rotate(240deg) translatex(110px);
+-moz-animation-delay: 3300s;
+-webkit-transform: rotate(240deg) translatex(110px);
+-webkit-animation-delay: 3300s;
+}
+#clock #m57 {
+-moz-transform: rotate(246deg) translatex(110px);
+-moz-animation-delay: 3360s;
+-webkit-transform: rotate(246deg) translatex(110px);
+-webkit-animation-delay: 3360s;
+}
+#clock #m58 {
+-moz-transform: rotate(252deg) translatex(110px);
+-moz-animation-delay: 3420s;
+-webkit-transform: rotate(252deg) translatex(110px);
+-webkit-animation-delay: 3420s;
+}
+#clock #m59 {
+-moz-transform: rotate(258deg) translatex(110px);
+-moz-animation-delay: 3480s;
+-webkit-transform: rotate(258deg) translatex(110px);
+-webkit-animation-delay: 3480s;
+}
+#clock #m60 {
+-moz-transform: rotate(264deg) translatex(110px);
+-moz-animation-delay: 3540s;
+-webkit-transform: rotate(264deg) translatex(110px);
+-webkit-animation-delay: 3540s;
+}
+
+/* hours */
+@-webkit-keyframes hours_effect {
+    0% {opacity: 1;}
+    8.33% {opacity: 1;}
+    8.34% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@-moz-keyframes hours_effect {
+    0% {opacity: 1;}
+    8.33% {opacity: 1;}
+    8.34% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+#clock  .hours {
+    height: 300px;
+    left: 175px;
+    position: absolute;
+    top: 249px;
+    width: 300px;
+}
+#clock  .hours div {
+    background-color: #940500;
+    height: 6px;
+    opacity: 0;
+    position: absolute;
+    width: 150px;
+
+    -moz-animation-name: hours_effect;
+    -moz-animation-duration: 43200s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: normal;
+    -moz-animation-delay: 0;
+    -moz-animation-play-state: running;
+    -moz-animation-fill-mode: forwards;
+
+    -webkit-animation-name: hours_effect;
+    -webkit-animation-duration: 43200s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+    -webkit-animation-delay: 0;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: forwards;
+}
+
+#clock #h1 {
+-moz-transform: rotate(-180deg) translatex(110px);
+-moz-animation-delay: 0s;
+-webkit-transform: rotate(-180deg) translatex(110px);
+-webkit-animation-delay: 0s;
+}
+#clock #h2 {
+-moz-transform: rotate(-150deg) translatex(110px);
+-moz-animation-delay: 3600s;
+-webkit-transform: rotate(-150deg) translatex(110px);
+-webkit-animation-delay: 3600s;
+}
+#clock #h3 {
+-moz-transform: rotate(-120deg) translatex(110px);
+-moz-animation-delay: 7200s;
+-webkit-transform: rotate(-120deg) translatex(110px);
+-webkit-animation-delay: 7200s;
+}
+#clock #h4 {
+-moz-transform: rotate(-90deg) translatex(110px);
+-moz-animation-delay: 10800s;
+-webkit-transform: rotate(-90deg) translatex(110px);
+-webkit-animation-delay: 10800s;
+}
+#clock #h5 {
+-moz-transform: rotate(-60deg) translatex(110px);
+-moz-animation-delay: 14400s;
+-webkit-transform: rotate(-60deg) translatex(110px);
+-webkit-animation-delay: 14400s;
+}
+#clock #h6 {
+-moz-transform: rotate(-30deg) translatex(110px);
+-moz-animation-delay: 18000s;
+-webkit-transform: rotate(-30deg) translatex(110px);
+-webkit-animation-delay: 18000s;
+}
+#clock #h7 {
+-moz-transform: rotate(0deg) translatex(110px);
+-moz-animation-delay: 21600s;
+-webkit-transform: rotate(0deg) translatex(110px);
+-webkit-animation-delay: 21600s;
+}
+#clock #h8 {
+-moz-transform: rotate(30deg) translatex(110px);
+-moz-animation-delay: 25200s;
+-webkit-transform: rotate(30deg) translatex(110px);
+-webkit-animation-delay: 25200s;
+}
+#clock #h9 {
+-moz-transform: rotate(60deg) translatex(110px);
+-moz-animation-delay: 28800s;
+-webkit-transform: rotate(60deg) translatex(110px);
+-webkit-animation-delay: 28800s;
+}
+#clock #h10 {
+-moz-transform: rotate(90deg) translatex(110px);
+-moz-animation-delay: 32400s;
+-webkit-transform: rotate(90deg) translatex(110px);
+-webkit-animation-delay: 32400s;
+}
+#clock #h11 {
+-moz-transform: rotate(120deg) translatex(110px);
+-moz-animation-delay: 36000s;
+-webkit-transform: rotate(120deg) translatex(110px);
+-webkit-animation-delay: 36000s;
+}
+#clock #h12 {
+-moz-transform: rotate(150deg) translatex(110px);
+-moz-animation-delay: 39600s;
+-webkit-transform: rotate(150deg) translatex(110px);
+-webkit-animation-delay: 39600s;
+}

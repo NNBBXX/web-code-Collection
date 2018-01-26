@@ -1,0 +1,122 @@
+
+/*!
+ * aaAccordion Library v1.0
+ * http://codecanyon.net/user/AA-Team/portfolio
+ *
+ * Copyright 2011, AA-Team
+ *
+ * Date: 1.12.2011
+ !*/
+.aaAccordion {
+	width: 100%; 
+	margin: 0px auto;
+	z-index: 5;
+	position: relative;
+	border:0px solid red;
+}
+	.aaAccordion .content {
+		width: 100%;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+		.aaAccordion .content ul {
+			position:relative;
+			left:0;
+			top:0;
+			padding: 0px;
+			padding: 0;
+			margin: 0 auto;
+			list-style: none;
+		}
+		.aaAccordion .content ul li {
+			position: relative;
+			float: left;
+			overflow: hidden;
+			padding: 0;
+			margin: 0 0px 0 0;
+			background: #797979 url("ajax-loader.gif") no-repeat;
+			background-position: center center;
+			display: block;
+			/* For IE 7 hack */
+			zoom: 1;
+			-webkit-box-shadow: -1px -1px 1px 1px rgba(0, 0, 0, 0.5);
+-moz-box-shadow: -1px -1px 1px 1px rgba(0, 0, 0, 0.5);
+box-shadow: -1px -1px 1px 1px rgba(0, 0, 0, 0.5); 
+		}
+			.aaAccordion li a.full-img {
+				display: block;
+				position: relative;
+				overflow: hidden;
+				cursor: pointer;
+			}
+				.aaAccordion li  a.full-img img {
+					display: block;
+					border: none;
+				}
+				.aaAccordion li  a.full-img .full-img-cvs {
+					position: absolute;
+					top: 0px;
+					left: 0px;
+				}
+				
+			.aaAccordion li div.caption {
+				width: 100%;
+				background-color: #fff;
+				background-color: rgba(255,255,255, 0.8);
+				position: absolute;
+				bottom: 10px;
+				left: 0px;
+				width: 100%;
+			}
+			
+				.aaAccordion li div.caption h1 {
+					font: 30px 'SpathaSans', Arial, sans-serif;
+					letter-spacing: 0;
+					font-weight: normal;
+					color: #5f879f;
+					padding: 0px;
+					margin: 23px 34px 11px 34px;
+					text-shadow: 1px 1px 1px #fff;
+				}
+				.aaAccordion li div.caption p {
+					font: 13px Arial, sans-serif;
+					color: #4d4d4d;
+					line-height: 17px;
+					padding: 0px;
+					margin: 0px 100px 14px 34px;
+					text-shadow: 1px 1px 1px #fff;
+					font-style:italic;
+				}
+				
+				.aaAccordion li div.caption a.go-btn {
+					background: url("btn.png") no-repeat;
+					display: block;
+					width: 74px; 
+					height: 89px; 
+					padding: 0px;
+					margin: 0px 14px 14px 34px;
+					position: absolute;
+					overflow: hidden;
+					text-indent: -1000px;
+					top: 50%;
+					margin-top: -35px;
+					right: 0px;
+				}
+				
+.deco {
+	width:100%;
+	height:51px;
+}
+.decoL{
+	float:left;
+	width:100%;
+	height:51px;
+	background: url("line.png") repeat-x;
+}
+.decoF{
+	position:relative;
+	height:51px;
+	width:225px;
+	background: url("flower.png") no-repeat;
+	margin:0px auto;
+}			

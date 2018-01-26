@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery滚动条美化Scrollbar设置浏览器默认滚动条样式</title>
+<meta name="description" content="jquery滚动条美化设置浏览器默认滚动条样式，当容器内容益处时显示浏览器滚动条进行美化。" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/scrollbar.js"></script>
+</head>
+
+<body>
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{line-height:180%;font-size:12px;}
+a{color:#333;text-decoration:none;}
+a:hover{color:#ff6600;text-decoration:underline;}
+/* newslist */
+.newslist{padding:10px;}
+.newslist li{height:32px;line-height:32px;border-bottom:dashed 1px #ddd;padding:0 10px;overflow:hidden;}
+/* scr_con style */
+.scr_con {position:relative;height:330px;border:solid 1px #ddd;width:600px;margin:20px auto;}
+#dv_scroll{position:absolute;height:310px;overflow:hidden;width:570px;}
+#dv_scroll .Scroller-Container{width:100%;}
+#dv_scroll_bar {position:absolute;right:0;top:10px;width:14px;height:310px;border-left:1px solid #B5B5B5;}
+#dv_scroll_bar .Scrollbar-Track{position:absolute;left:0;top:20px;width:14px;height:270px;}
+#dv_scroll_bar .Scrollbar-Handle{position:absolute;left:-7px;top:0;width:13px;height:29px;overflow:hidden;background:url(images/srcoll.gif) no-repeat;cursor:pointer;}
+#dv_scroll_text {position:absolute;}
+</style>
+
+<div class="scr_con">
+	<div id="dv_scroll">
+		<div id="dv_scroll_text" class="Scroller-Container">
+			<div class="newslist">
+				<ul>
+					<li><a href="http://www.17sucai.com/">jquery 文字连续滚动 节奏感十足的齿轮式滚动图片展示与文字内容特效展示</a></li>
+					<li><a href="http://www.17sucai.com/">jquery 图片幻灯片切换 鼠标点击左右按钮或分页索引图片显示大图</a></li>
+					<li><a href="http://www.17sucai.com/">基于jquery 选项卡插件jquery tab选项卡支持垂直选项卡滚动、水平选项卡滚动、自动选项卡切换等。</a></li>
+					<li><a href="http://www.17sucai.com/">jquery 图片滚动类似flash动画图片滚动，带停止和开始按钮控制图片特效</a></li>
+					<li><a href="http://www.17sucai.com/">jquery 图片幻灯片仿IBM首页焦点图切换，类似flash动态效果图片切换</a></li>
+					<li><a href="http://www.17sucai.com/">jquery特效基于jquery幻灯片插件制作一个泡沫幻灯片图片展示特效</a></li>
+					<li><a href="http://www.17sucai.com/">jquery 图片特效用CSS3和HTML5制作仿动画头条报纸缩小到放大翻转图片展示</a></li>
+					<li><a href="http://www.17sucai.com/">jquery筛选器插件选项卡 css3制作一个漂亮的HTML5筛选容器插件选项卡</a></li>
+					<li><a href="http://www.17sucai.com/">jquery 图片切换滚动特效带分页索引按钮控制左右图片切换滚动</a></li>
+					<li><a href="http://www.17sucai.com/">jquery图片切换滚动 水平手风琴切换滚动鼠标滑过图片水平切换</a></li>
+					<li><a href="http://www.17sucai.com/">jquery评论星星打分特效、鼠标滑过星星显示评论信息</a></li>
+					<li><a href="http://www.17sucai.com/">jquery colorpicker 插件颜色选择器 点击颜色选择颜色值与颜色相应变化</a></li>
+					<li><a href="http://www.17sucai.com/">javascript jscolor colorpicker js颜色选择器插件10多种调用颜色方法与取值</a></li>
+					<li><a href="http://www.17sucai.com/">jquery图片特效 slide banner焦点图片切换图片上下翻滚、图片左右翻滚、图片淡隐淡现3种图片滚动特效</a></li>
+				</ul>				
+			</div><!--about end-->
+		</div>
+	</div><!--dv_scroll end-->
+	<div id="dv_scroll_bar">
+		<div id="dv_scroll_track" class="Scrollbar-Track">
+			<div class="Scrollbar-Handle"></div>
+		</div>
+	</div><!--dv_scroll_bar end-->
+</div><!--scr_con end-->
+
+</body>
+</html>

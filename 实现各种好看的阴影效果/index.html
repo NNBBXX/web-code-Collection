@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shine Demo</title>
+    <link href="assets/demo.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="assets/shine.min.js"></script>
+    <link rel="stylesheet" href="http://dreamsky.github.io/main/blog/common/init.css">
+    <style>
+      body {
+        background-color: #666;
+      }
+    </style>
+    <script src="http://dreamsky.github.io/main/blog/common/jquery.min.js"></script>
+    <script src="http://dreamsky.github.io/main/blog/common/init.js"></script>
+  </head>
+  <body>
+    <h1 id="headline" class="demo-text">梦想天空</h1>
+    <div class="footer-banner" style="width:728px; margin:700px auto 0"></div>
+    <script type="text/javascript">
+      var shine = new Shine(document.getElementById('headline'));
+
+      function handleMouseMove(event) {
+        shine.light.position.x = event.clientX;
+        shine.light.position.y = event.clientY;
+        shine.draw();
+      }
+
+      window.addEventListener('mousemove', handleMouseMove, false);
+    </script>
+  </body>
+</html>

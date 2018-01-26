@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Fort.js - 表单填写进度提示效果</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="fort.css">
+<link rel="stylesheet" href="http://dreamsky.github.io/main/blog/common/init.css">
+<style>
+.top-banner {
+  background-color: #333;
+}
+.nav {
+	margin-bottom: 30px;
+}
+.nav li.current a{
+	background-color: #009DFF;
+	color: #fff;
+	padding: 10px;
+}
+.nav a {
+	margin: 5px;
+	color: #333;
+	text-decoration: none;
+}
+</style>
+<script src="fort.js"></script>
+</head>
+<body>
+<div class="form-wrapper" >
+  <div class="top"><div class="colors"></div></div>
+	<div class="nav">
+		<ul>
+			<li><a href="../default/index.html">效果一</a></li>
+			<li class="current"><a href="../flash/index.html">效果二</a></li>
+			<li><a href="../gradient/index.html">效果三</a></li>
+			<li><a href="../sections/index.html">效果四</a></li>
+		</ul>
+	</div>
+	<form name="form" action="#">
+		<div class="form">
+			<div class="form-item">
+				<input type="text" name="text" required="required" placeholder="Name" autocomplete="off">
+			</div>
+			<div class="form-item">
+				<input type="text" name="text" required="required" placeholder="Username" autocomplete="off">
+			</div>
+			<div class="form-item">
+				<input type="password" name="password" required="required" placeholder="Password" autocomplete="off">
+			</div>
+			<div class="button-panel">
+     <input type="submit" class="button" title="Sign In" value="Test It Out">
+   </div>
+	</div>
+</form>
+</div>
+<div class="footer-banner" style="width:728px; margin:200px auto 0"></div>
+<script>
+    flash();
+</script>
+<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://dreamsky.github.io/main/blog/common/init.js"></script>
+</body>
+</html>

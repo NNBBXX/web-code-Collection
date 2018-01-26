@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery扩展金属导航 </title>
+
+<link rel="stylesheet" href="css/styles.css" type="text/css" />
+
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+						   
+	/* 滑动/展开 */
+	$("ul.expmenu li > div.header").click(function(){
+												   
+		var arrow = $(this).find("span.arrow");
+	
+		if(arrow.hasClass("up")){
+			arrow.removeClass("up");
+			arrow.addClass("down");
+		}else if(arrow.hasClass("down")){
+			arrow.removeClass("down");
+			arrow.addClass("up");
+		}
+	
+		$(this).parent().find("ul.menu").slideToggle();
+		
+	});
+	
+});
+</script>
+
+</head>
+<body>
+
+	<ul class="expmenu">
+		<li>
+			<div class="header">
+				<span class="label" style="background-image:url(images/messages.png);">Messages</span>
+				<span class="arrow up"></span>
+			</div>
+			<ul class="menu" style="display:block;">
+				<li>Notification Settings</li>
+				<li class="selected">Email Alerts</li>
+				<li>Privacy Settings</li>
+			</ul>
+		</li>
+		<li>
+			<div class="header">
+				<span class="label" style="background-image:url(images/user.png);">User Controls</span>
+				<span class="arrow up"></span>
+			</div>
+			<ul class="menu" style="display:block;">
+				<li><input type="range" name="range" min="0" max="100" value="35" style="width:100%;" /></li>
+			</ul>
+			<link rel="stylesheet" href="css/jquery-tool.css" type="text/css" />
+			<script type="text/javascript" src="js/jquery.tools.min.js"></script>
+			<script type="text/javascript">
+			$(document).ready(function(){
+									   
+				//滑动条
+				$(":range").rangeinput({progress: true});
+				
+			});
+			</script>
+		</li>
+		<li>
+			<div class="header">
+				<span class="label" style="background-image: url(images/pc.png);">Screen Settings</span>
+				<span class="arrow down"></span>
+			</div>
+			<ul class="menu">
+				<li>Your settings</li>
+			</ul>
+		</li>
+		<li>
+			<div class="header">
+				<span class="label" style="background-image:url(images/search.png);">Search</span>
+			</div>
+		</li>
+	</ul>
+
+</body>
+</html>

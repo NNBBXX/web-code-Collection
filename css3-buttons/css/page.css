@@ -1,0 +1,30 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	color:#eee;
+	background:url('../img/page_bg.jpg') repeat-x #f3f3f3;
+	font:15px Calibri,Arial,sans-serif;
+	border-top:5px solid #212121;
+}
+
+#buttonContainer{
+	background:url('../img/section_bg.png');
+	border:1px solid #F4F4F4;
+	margin:120px auto 0;
+	overflow:hidden;
+	
+	padding:20px 0 35px 45px;
+	width:440px;
+	
+	-moz-box-shadow:0 0 10px #C4C4C4;
+	-webkit-box-shadow:0 0 10px #C4C4C4;
+	box-shadow:0 0 10px #C4C4C4;
+}
+
+#buttonContainer a{
+	float:left;
+	margin:15px 15px 0 0;
+}

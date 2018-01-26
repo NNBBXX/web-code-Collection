@@ -1,0 +1,292 @@
+html, body, .container {
+	height: 100%;
+}
+
+.js .boxgallery,
+.js .boxgallery div {
+	position: absolute;
+}
+
+.js .boxgallery,
+.bg-tile,
+.bg-img {
+	overflow: hidden;
+}
+
+.js .boxgallery,
+.js .panel {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.panel {
+	z-index: 0;
+	-webkit-perspective: 1200px;
+	perspective: 1200px;
+}
+
+.bg-tile {
+	width: 50%;
+	height: 50%;
+}
+
+.bg-tile:nth-child(2),
+.bg-tile:nth-child(4) {
+	left: 50%;
+}
+
+.bg-tile:nth-child(3),
+.bg-tile:nth-child(4) {
+	top: 50%;
+}
+
+.bg-img {
+	width: 100%;
+	height: 100%;
+	background: #999;
+}
+
+.bg-img img {
+	position: absolute;
+	display: block;
+	height: 200%;
+}
+
+@media screen and (min-aspect-ratio: 1280/850) {
+	.bg-img img {
+		width: 200%;
+		height: auto;
+	}
+}
+
+.bg-tile:nth-child(2) .bg-img img,
+.bg-tile:nth-child(4) .bg-img img {
+	left: -100%;
+}
+
+.bg-tile:nth-child(3) .bg-img img,
+.bg-tile:nth-child(4) .bg-img img {
+	top: -100%;
+}
+
+/* Navigation Arrow */
+.boxgallery > nav span {
+	position: absolute;
+	top: 50%;
+	z-index: 1000;
+	display: block;
+	width: 100px;
+	height: 100px;
+	outline: none;
+	text-align: left;
+	cursor: pointer;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.boxgallery > nav span.prev {
+	left: 0;
+}
+
+.boxgallery > nav span.next {
+	right: 0;
+}
+
+.boxgallery > nav i {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.boxgallery > nav span::before,
+.boxgallery > nav span::after,
+.boxgallery > nav i::before,
+.boxgallery > nav i::after {
+	position: absolute;
+	left: 50%;
+	width: 3px;
+	height: 50%;
+	outline: 1px solid transparent;
+	background: #dbccd0;
+	content: '';
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.boxgallery > nav i::before,
+.boxgallery > nav i::after {
+	z-index: 100;
+	height: 0;
+	background: #fff;
+	-webkit-transition: height 0.3s, -webkit-transform 0.3s;
+	transition: height 0.3s, transform 0.3s;
+}
+
+.boxgallery > nav span::before,
+.boxgallery > nav i::before {
+	top: 50%;
+	-webkit-transform: translateX(-50%) rotate(-135deg);
+	transform: translateX(-50%) rotate(-135deg);
+	-webkit-transform-origin: 50% 0%;
+	transform-origin: 50% 0%;
+}
+
+.boxgallery > nav span.next::before,
+.boxgallery > nav span.next i::before {
+	-webkit-transform: translateX(-50%) rotate(135deg);
+	transform: translateX(-50%) rotate(135deg);
+	-webkit-transform-origin: 50% 0%;
+	transform-origin: 50% 0%;
+}
+
+.boxgallery > nav span::after,
+.boxgallery > nav i::after {
+	top: 50%;
+	-webkit-transform: translateX(-50%) rotate(-45deg);
+	transform: translateX(-50%) rotate(-45deg);
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+}
+
+.boxgallery > nav span.next::after,
+.boxgallery > nav span.next i::after {
+	-webkit-transform: translateX(-50%) rotate(45deg);
+	transform: translateX(-50%) rotate(45deg);
+	-webkit-transform-origin: 100% 0%;
+	transform-origin: 100% 0%;
+}
+
+.no-touch .boxgallery > nav span:hover i::before,
+.no-touch .boxgallery > nav span:hover i::after {
+	height: 50%;
+}
+
+.no-touch .boxgallery > nav span:hover::before,
+.no-touch .boxgallery > nav span:hover i::before {
+	-webkit-transform: translateX(-50%) rotate(-125deg);
+	transform: translateX(-50%) rotate(-125deg);
+}
+
+.no-touch .boxgallery > nav span.next:hover::before,
+.no-touch .boxgallery > nav span.next:hover i::before {
+	-webkit-transform: translateX(-50%) rotate(125deg);
+	transform: translateX(-50%) rotate(125deg);
+}
+
+.no-touch .boxgallery > nav span:hover::after,
+.no-touch .boxgallery > nav span:hover i::after {
+	-webkit-transform: translateX(-50%) rotate(-55deg);
+	transform: translateX(-50%) rotate(-55deg);
+}
+
+.no-touch .boxgallery > nav span.next:hover::after,
+.no-touch .boxgallery > nav span.next:hover i::after {
+	-webkit-transform: translateX(-50%) rotate(55deg);
+	transform: translateX(-50%) rotate(55deg);
+}
+
+/* Transitions and individual delays/effects */
+/* The "active" class is given to the panel that is coming */
+
+.panel.current {
+	z-index: 2;
+}
+
+.panel.active {
+	z-index: 1;
+}
+
+.panel.current .bg-img {
+	-webkit-transition: -webkit-transform 1.1s ease-in-out;
+	transition: transform 1.1s ease-in-out;
+}
+
+.boxgallery[data-effect="effect-1"] .panel.active .bg-tile,
+.boxgallery[data-effect="effect-2"] .panel.active .bg-tile {
+	-webkit-animation: scaleDown 1.1s ease-in-out;
+	animation: scaleDown 1.1s ease-in-out;
+}
+
+@-webkit-keyframes scaleDown {
+	from { -webkit-transform: translate3d(0,0,380px); transform: translate3d(0,0,380px); }
+	to { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }
+}
+
+@keyframes scaleDown {
+	from { -webkit-transform: translate3d(0,0,380px); transform: translate3d(0,0,380px); }
+	to { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }
+}
+
+/* Variation 2 */
+.boxgallery[data-effect="effect-2"] .panel.current .bg-img {
+	-webkit-transition: -webkit-transform 0.9s cubic-bezier(0.7,0,0.3,1);
+	transition: transform 0.9s cubic-bezier(0.7,0,0.3,1);
+}
+
+.boxgallery[data-effect="effect-2"] .panel.current .bg-tile:nth-child(2) .bg-img {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+}
+
+.boxgallery[data-effect="effect-2"] .panel.current .bg-tile:nth-child(3) .bg-img {
+	-webkit-transition-delay: 0.3s;
+	transition-delay: 0.3s;
+}
+
+.boxgallery[data-effect="effect-2"] .panel.current .bg-tile:nth-child(4) .bg-img {
+	-webkit-transition-delay: 0.45s;
+	transition-delay: 0.45s;
+}
+
+/* Variation 3 */
+.boxgallery[data-effect="effect-3"] .panel::after {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.8);
+	content: '';
+	-webkit-transition: opacity 1.1s ease-in-out;
+	transition: opacity 1.1s ease-in-out;
+}
+
+.boxgallery[data-effect="effect-3"] .panel.current::after,
+.boxgallery[data-effect="effect-3"] .panel.active::after {
+	opacity: 0;
+}
+
+.boxgallery[data-effect="effect-3"] .panel.current::after {
+	-webkit-transition: none;
+	transition: none;
+}
+
+.boxgallery[data-effect="effect-3"] .panel.current .bg-img {
+	-webkit-transition: -webkit-transform 1.1s cubic-bezier(0.7,0,0.3,1);
+	transition: transform 1.1s cubic-bezier(0.7,0,0.3,1);
+}
+
+.boxgallery[data-effect="effect-3"] .panel.current .bg-tile:nth-child(2) .bg-img {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+}
+
+.boxgallery[data-effect="effect-3"] .panel.current .bg-tile:nth-child(3) .bg-img {
+	-webkit-transition-delay: 0.3s;
+	transition-delay: 0.3s;
+}
+
+.boxgallery[data-effect="effect-3"] .panel.current .bg-tile:nth-child(4) .bg-img {
+	-webkit-transition-delay: 0.45s;
+	transition-delay: 0.45s;
+}
+
+@media screen and (max-width: 380px) {
+	.boxgallery > nav span {
+		width: 50px;
+		height: 50px;
+	}
+}

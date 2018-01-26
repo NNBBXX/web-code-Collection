@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AA-Accordion Slider - CSS3 Featured Projects </title>
+
+<!-- plugin, stylesheet -->
+<link rel="stylesheet" href="css/aaAccordion.css" media="screen">
+
+<!-- jQuery, addons -->
+<script src="js/jquery.js"></script>
+
+<!-- plugin, addons -->
+<script src="js/aaAccordion.class.js"></script>
+
+<!-- javascript, inline code -->
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery('#firstAcc').aaAccordion({
+		animationSpeed: 350,
+		easing: 'easeOutQuad',
+		startWidth: 500,
+		margin: 0,
+		firstOpen: 1,
+		startAfter: 1300,
+		itemWidth: 500,
+		itemHeight: 500,
+		firstOpen: 1,
+		hoverGray: true,
+		keyBrowse: true,
+		pauseOnHover: true,
+		autoplay: true, // autoplay easing
+		autoplaySpeed: 3000 // autoplay interval speed
+	});
+});
+</script>
+
+<style>
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #212121;
+	padding-top: 0px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- aaAccordion -->
+<div class="aaAccordion" id="firstAcc">
+	<div class="content">
+		<ul>
+			<li>
+				<a href="#" class="full-img"><img src="images/1.jpg" alt="img title" /></a>
+				<div class="caption">
+					<h1>Brunette girl & hair flower</h1>
+					<p>Vestibulum sagittis nunc ac urna aliquam viverra. Pellentesque sem quam, bibendum id dapibus non, ornare quis mi. Ut leo odio, vehicula ac mattis id, dignissim vel dui. </p>			
+					<a href="#" class="go-btn">go button</a>
+				</div>
+			</li>
+			<li>
+				<a href="#" class="full-img"><img src="images/2.jpg" alt="img title" /></a>
+				<div class="caption">
+					<h1>Lost princess of the castle</h1>
+					<p>Integer libero sem, vestibulum non mollis sed, convallis vitae nunc..</p>				
+					<a href="#" class="go-btn">go button</a>
+				</div>
+			</li>
+			<li>
+				<a href="#" class="full-img"><img src="images/6.jpg" alt="img title" /></a>
+				<div class="caption">
+					<h1>Peacock green lady</h1>
+					<p>tiam condimentum suscipit nulla, ut egestas nisl tempor eu. Etiam vel diam urna, in venenatis justo. Cras euismod fermentum adipiscing. </p>	
+					<a href="#" class="go-btn">go button</a>
+				</div>
+			</li>
+			<li>
+				<a href="#" class="full-img"><img src="images/4.jpg" alt="img title" /></a>
+				<div class="caption">
+					<h1>Peachy & sensual</h1>
+					<p>Suspendisse tincidunt est ac risus tempus ut consectetur metus molestie. Curabitur purus est, lobortis in pulvinar non, molestie vitae turpis.</p>	
+					<a href="#" class="go-btn">go button</a>
+				</div>
+			</li>
+			<li>
+				<a href="#" class="full-img"><img src="images/5.jpg" alt="img title" /></a>
+				<div class="caption">
+					<h1>Purple & pink!</h1>
+					<p>Rullam in orci sed dolor aliquam semper vel in arcu. Donec tempor porttitor arcu, non lacinia tellus luctus eu. </p>
+					<a href="#" class="go-btn">go button</a>
+				</div>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+<div class="deco">
+	<div class="decoL"></div>
+	<div class="decoF"></div>
+</div>
+
+
+</body>
+</html>

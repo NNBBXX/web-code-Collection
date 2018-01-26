@@ -1,0 +1,30 @@
+﻿body,h1,h2,h3,p,quote,small,form,input,ul,li,ol,label{
+	/* Simple page reset */
+	margin:0;
+	padding:0;
+}
+
+body{
+	/* Setting default text color, background and a font stack */
+	color:#dddddd;
+	font-size:13px;
+	background: #302b23;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#fancyClock{
+	margin:200px auto;
+	height:200px;
+	border:1px solid #111111;
+	width:600px;
+}
+
+a, a:visited {
+	color:#0196e3;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}

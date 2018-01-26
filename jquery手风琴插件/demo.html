@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery滑动门代码鼠标悬停竖直滑动门切换</title>
+<meta name="description" content="jquery滑动门代码插件制作竖直滑动门切换效果，通过鼠标悬停滑过导航标签滑动门自动切换效果。默认可设置某个滑动门展开，支持点击或悬停的滑动门代码。" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.hoveraccordion.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function(){
+	$('#accoradion01').hoverAccordion({
+		activateItem:5,	     //默认下设置第4个滑动门展开	 
+		onClickOnly:false,   //点击或悬停触发"false"、"true" 
+		speed:'fast'         //滑动门切换过渡效果"fast"、"slow"、"normal"
+	}); 
+});
+</script>
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+/* accoradion */
+.accoradion{width:300px;background:#fff;color:#000;margin:20px auto;}
+.accoradion ul{overflow:hidden;}
+.accoradion li a.header{padding:0 0 0 25px;display:block;color:#000;height:30px;line-height:30px;border:solid 1px #ddd;position:relative;margin:-1px 0 0 0;font-size:14px;text-decoration:none;}
+.accoradion li a.closed{background:#F2F2F2 url(images/arrowbg.gif) no-repeat 10px 12px;}
+.accoradion li a.opened{color:#fff;background:#B7B7B7 url(images/arrowbg.gif) no-repeat 10px -13px;font-weight:800;}
+.accoradion li li{border:1px solid #E5E5E5;padding:10px 15px;height:125px;position:relative;margin:-1px 0 0 0;}
+.accoradion li li h3{line-height:22px;padding:0 0 10px 0;}
+.accoradion li li p{line-height:22px;}
+</style>
+</head>
+<body>
+
+	<ul id="accoradion01" class="accoradion">
+		<li><a href="#">jquery 特效</a>
+			<ul>
+				<li>
+					<h3><a href="http://www.17sucai.com/" target="_blank">jquery多窗口轮播焦点图片滚动切换</a></h3>
+					<p>jquery焦点图特效制作影视网站多窗口焦点图片轮播滚动播放，点击索引按钮每个焦点图窗口图片相应的滚动切换。多个窗口图片滚动组成的轮播焦点图片切换。</p>
+				</li>
+			</ul>
+		</li>
+		<li><a href="#">js特效</a>
+			<ul>
+				<li>
+					<h3><a href="http://www.17sucai.com/" target="_blank">js文字切换特效制作焦点文字带滤镜切换效果</a></h3>
+					<p>js文字特效制作js文字切换效果让焦点文字带滤镜效果切换滚动，内含js代码下载。</p>
+				</li>
+			</ul>
+		</li>
+		<li><a href="#">flash特效</a>
+			<ul>
+				<li>
+					<h3><a href="http://www.17sucai.com/" target="_blank">flash图片切换左右滚动带序列索引按钮控制flash动画图片特效</a></h3>
+					<p>flash动画图片滚动特效带序列按钮对应索引图片切换左右滚动支持xml文件外调、图片外调等功能。</p>
+				</li>
+			</ul>
+		</li>
+		<li><a href="#">div+css教程</a>
+			<ul>
+				<li>
+					<h3><a href="http://www.17sucai.com/" target="_blank">div+css布局控制div定位浮动层在背景图片上的半透明阴影效果</a></h3>
+					<p>div+css布局应用div定位浮动层控制在背景图片上，以半透明阴影效果显示，div内容列表排行序列显示。div css模板和div css教程下载。</p>
+				</li>
+			</ul>
+		</li>
+		<li><a href="#">html5教程</a>
+			<ul>
+				<li>
+					<h3><a href="http://www.17sucai.com/" target="_blank">制作CSS3和HTML5的一个单页网站模板</a></h3>
+					<p>在这里，我们使用的是新版本的HTML- 该网站的基本语言，使Web模板，利用所带来的CSS3和jQuery的一些新功能的scrollTo插件。</p>
+				</li>
+			</ul>
+		</li>
+	</ul><!--accoradion end-->
+	
+</body>
+</html>

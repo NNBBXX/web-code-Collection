@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>OuiBounce Testing Page</title>
+    <link rel="stylesheet" href="ouibounce.min.css">
+    <link rel="stylesheet" href="http://dreamsky.github.io/main/blog/common/init.css">
+    <style>
+      body {
+        background-color: #F0F1F2;
+        color: #2E4052;
+        min-height: 500px;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        font-family: sans-serif;
+      }
+      .top-banner {
+        background-color: #333;
+      }
+      .title {
+        width:600px; 
+        margin:200px auto;
+        font-size:60px;
+        text-align:center;
+        font-family: 'Microsoft Yahei';
+        text-shadow: 1px 1px 1px #999;
+      }
+    </style>
+  </head>
+
+  <body style="margin-top:100px">
+    <!-- Example page instructions -->
+    <div class="title">尝试离开页面试试</div>
+
+    <!-- OuiBounce Modal -->
+    <div id="ouibounce-modal">
+      <div class="underlay"></div>
+      <div class="modal">
+        <div class="modal-title">
+          <h3>亲，你要订阅吗？</h3>
+        </div>
+        <div class="modal-body">
+          <form style="margin-top:95px">
+            <input type="text" placeholder="you@email.com">
+            <input type="submit" value="订阅">
+            <p class="form-notice" style="margin-left:85px;margin-top:10px">*这是一个模拟的表单</p>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <p>不用了，谢谢！</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-banner" style="width:728px; margin:420px auto 0"></div>
+    <script src="http://dreamsky.github.io/main/blog/common/jquery.min.js"></script>
+    <script src="http://dreamsky.github.io/main/blog/common/init.js"></script>
+    <script src="ouibounce.js"></script>
+    <!-- Example page JS        -->
+    <!-- Used to fire the modal -->
+    <script>
+
+      // if you want to use the 'fire' or 'disable' fn,
+      // you need to save OuiBounce to an object
+      var _ouibounce = ouibounce(document.getElementById('ouibounce-modal'), {
+        aggressive: true,
+        timer: 0,
+        callback: function() { console.log('ouibounce fired!'); }
+      });
+
+      $('body').on('click', function() {
+        $('#ouibounce-modal').hide();
+      });
+
+      $('#ouibounce-modal .modal-footer').on('click', function() {
+        $('#ouibounce-modal').hide();
+      });
+
+      $('#ouibounce-modal .modal').on('click', function(e) {
+        e.stopPropagation();
+      });
+    </script>
+  </body>
+</html>

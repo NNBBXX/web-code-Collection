@@ -1,0 +1,74 @@
+@charset "utf-8";
+/*reset css*/
+body, button, input, select, textarea{font:12px/1.125 Arial, Helvetica, sans-serif;_font-family:"SimSun";}
+body, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, th, td, p, blockquote, pre, form, fieldset, legend, input, button, textarea, hr{margin:0;padding:0;}
+body{background:#f4f4f4;}
+table{border-collapse:collapse;border-spacing:0;}
+li{list-style:none;}
+fieldset, img{border:0;}
+q:before, q:after{content:'';}
+a:focus, input, textarea{outline-style:none;}
+input[type="text"], input[type="password"], textarea{outline-style:none;-webkit-appearance:none;}
+textarea{resize:none;}
+address, caption, cite, code, dfn, em, i, th, var, b{font-style:normal;font-weight:normal;}
+abbr, acronym{border:0;font-variant:normal;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+a{color:#0a8cd2;text-decoration:none;}
+a:hover{text-decoration:underline;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{display:inline-block;}
+.clearfix{display:block;}
+.clear{clear:both;height:0;font:0/0 Arial;visibility:hidden;}
+
+.left{float:left;}
+.right{float:right;}
+.buybtn{border-width:1px;border-style:solid;border-color:#FF9B01;background-color:#FFA00A;color:white;border-radius:2px;display:inline-block;overflow:hidden;vertical-align:middle;cursor:pointer;}
+.buybtn:hover{text-decoration:none;background:#FFB847;background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(255, 184, 71, 1)),color-stop(100%,rgba(255, 162, 16, 1)));}
+.buybtn span{border-color:#FFB33B;padding:0 9px 0 10px;white-space:nowrap;display:inline-block;border-style:solid;border-width:1px;border-radius:2px;height:18px;line-height:17px;vertical-align:middle;}
+
+/*main css*/
+.pic-list{width:700px;margin:100px auto;}
+.pic-list .dressing{float:left;_display:inline;margin:8px;margin-top:15px;}
+.pic-list .dressing_wrap, .pic-list .dressing_wrapB{position:relative;_zoom:1;border-radius:2px;background:#F1F1F1;border-style:solid;border-width:1px;}
+.pic-list .skinimg{z-index:2;border-style:solid;border-width:2px;border-color:#fff;}
+.pic-list .skinimg a{display:block;overflow:hidden;}
+.pic-list .skinimg img{display:inline-block;}
+.pic-list .skinimg .loading{border-radius:0;width:31px;height:31px;padding-left:97px;padding-top:59px;}
+.pic-list .dressing_wrap{border-color:#d8d8d8;-webkit-box-shadow:0 3px 6px -4px rgba(0,0,0,1);box-shadow:0 3px 6px -4px rgba(0,0,0,1);background:#FFF;border:1px solid #c4c4c4;border-radius:2px;-webkit-box-shadow:0 0 5px 0 rgba(0,0,0,.21);box-shadow:0 0 5px 0 rgba(0,0,0,.21);}
+.pic-list .information_area{margin-bottom:11px;}
+.pic-list .information_area_wrap{margin:auto;position:relative;}
+.pic-list .item, .pic-list .tipinfo{padding:3px 10px 0 10px;}
+.pic-list .information_area h4, .pic-list .W_vline, .pic-list .price{margin-top:6px;}
+.pic-list .information_area h4 a{cursor:default;}
+.pic-list .price{color:#333;}
+.pic-list .price a:hover{text-decoration:underline;}
+.pic-list .op a{color:#0989d1;}
+.pic-list .W_vline{color:#999;margin-right:8px;margin-left:10px;}
+.pic-list .t_open{margin-top:5px;}
+.pic-list .price{color:#f80;font:normal 12px/normal 'microsoft yahei';}
+.pic-list .skinimg img:hover{-webkit-animation:tada 1s .2s ease both;-moz-animation:tada 1s .2s ease both;}
+@-webkit-keyframes tada{0%{-webkit-transform:scale(1);}
+10%, 20%{-webkit-transform:scale(0.9) rotate(-3deg);}
+30%, 50%, 70%, 90%{-webkit-transform:scale(1.1) rotate(3deg);}
+40%, 60%, 80%{-webkit-transform:scale(1.1) rotate(-3deg);}
+100%{-webkit-transform:scale(1) rotate(0);}}
+@-moz-keyframes tada{0%{-moz-transform:scale(1);}
+10%, 20%{-moz-transform:scale(0.9) rotate(-3deg);}
+30%, 50%, 70%, 90%{-moz-transform:scale(1.1) rotate(3deg);}
+40%, 60%, 80%{-moz-transform:scale(1.1) rotate(-3deg);}
+100%{-moz-transform:scale(1) rotate(0);}}
+.pic-list .dressing_hover .information_area{-webkit-animation:flipInY 300ms .1s ease both;-moz-animation:flipInY 300ms .1s ease both;}
+
+@-webkit-keyframes flipInY{0%{-webkit-transform:perspective(400px) rotateY(90deg);
+opacity:0;}
+40%{-webkit-transform:perspective(400px) rotateY(-10deg);}
+70%{-webkit-transform:perspective(400px) rotateY(10deg);}
+100%{-webkit-transform:perspective(400px) rotateY(0deg);
+opacity:1;}}
+@-moz-keyframes flipInY{0%{-moz-transform:perspective(400px) rotateY(90deg);
+opacity:0;}
+40%{-moz-transform:perspective(400px) rotateY(-10deg);}
+70%{-moz-transform:perspective(400px) rotateY(10deg);}
+100%{-moz-transform:perspective(400px) rotateY(0deg);
+opacity:1;}}

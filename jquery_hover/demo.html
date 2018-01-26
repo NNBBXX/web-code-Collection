@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery hover图片列表上下滚动显示图片详细内容</title>
+<meta name="description" content="jquery hover鼠标滑过案例或产品图片列表，图片向上滚动显示图片详细内容，鼠标离开图片内容向下滚动显示案例或产品图片。" />
+</head>
+
+<body>
+
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif ,"宋体";}
+/* caselist */
+.caselist{width:474px;margin:30px auto;}
+.caselist li{width:227px;height:227px;float:left;margin:0 10px 15px 0;position:relative;overflow:hidden;}
+.tagImg1{width:226px;height:226px;display:block; position:absolute; left:0px; top:0px;}
+.tagImg1 img{width:226px;height:226px;}
+.tagImg2{width:59px;height:59px;display:block;float:left;margin:0 10px 0 0;}
+.tagImg2 img{width:59px;height:59px;}
+.tagDiv1{background:#F4F4F4;border:1px solid #E7E7E7;padding:10px;width:205px;height:205px;position:absolute;left:0px;top:226px;z-index:2;}
+.tagDiv1 h3{margin:0px;font-size:12px;color:#000;line-height:16px;}
+.tagP1{margin:5px 0 0;color:#666;}
+.tagP2{line-height:22px;clear:both;color:#666;padding:5px 0 0;height:115px;overflow:hidden;}
+.tagP3{height:25px;}
+.tagP3 a{background:url("images/jz_sprite-btn.png") no-repeat;color:#2A5077;display:inline-block;height:25px;line-height:25px;margin-left:10px;text-align:center;width:89px;text-decoration:none;}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var moveHeight = 226,
+		moveTime = 200,
+		curMove = null;
+	$('.caselist li').hover(function (e){
+		var curLi = $(this);
+		curMove = setTimeout(function (){
+			curLi.children('a.tagImg1').animate({ top: '-' + moveHeight + 'px' }, moveTime);
+			curLi.children('div.tagDiv1').animate({ top: '0px' }, moveTime);
+		}, 200);
+	},function(e){
+		clearTimeout(curMove);
+		$(this).children('a.tagImg1').animate({ top: '0px' }, moveTime);
+		$(this).children('div.tagDiv1').animate({ top: moveHeight + 'px' }, moveTime);
+	});
+});
+</script>
+
+<ul class="caselist">
+	<li>
+		<a href="http://www.17sucai.com" class="tagImg1" target="_blank"><img src="images/bzImg001.jpg" alt="全聚德" /></a>
+		<div class="tagDiv1">
+			<a href="http://www.17sucai.com" class="tagImg2" target="_blank"><img src="images/bzImg001.jpg" alt="全聚德" /></a>
+			<h3>全聚德</h3>
+			<p class="tagP1">类型：标准网站</p>
+			<p class="tagP2">全聚德通过网站很好的宣传了企业品牌。利用图片展示菜系，通过照片和描述介绍了用餐环境，留下完整的地点电话等,方便客户提前了解菜谱和用餐环境。</p>
+			<p class="tagP3"><a href="http://www.17sucai.com" target="_blank">查看该产品</a><a href="http://www.17sucai.com" target="_blank">查看案例</a></p>
+		</div>
+	</li>
+	<li>
+		<a target="_blank" class="tagImg1" href="http://www.17sucai.com"><img alt="深圳市佳思特企业管理咨询有限公司" src="images/bzImg004.jpg"></a>
+		<div class="tagDiv1">
+			<a target="_blank" class="tagImg2" href="http://www.17sucai.com"><img alt="深圳市佳思特企业管理咨询有限公司" src="images/bzImg004.jpg"></a>
+			<h3>佳思特</h3>
+			<p class="tagP1">类型：标准网站</p>
+			<p class="tagP2">佳思特很好的利用自己的官网，将公司业务领域和特色等清晰明确的写明。同时在公司介绍里展示自己的资质和实力，通过列举客户案例的方式也会提升企业竞争力。</p>
+			<p class="tagP3"><a target="_blank" href="http://www.17sucai.com">查看该产品</a><a target="_blank" href="http://www.17sucai.com">查看案例</a></p>
+		</div>
+	</li>
+	<li>
+		<a target="_blank" class="tagImg1" href="http://www.17sucai.com"><img alt="深圳市佳思特企业管理咨询有限公司" src="images/bzImg004.jpg"></a>
+		<div class="tagDiv1">
+			<a target="_blank" class="tagImg2" href="http://www.17sucai.com"><img alt="深圳市佳思特企业管理咨询有限公司" src="images/bzImg004.jpg"></a>
+			<h3>佳思特</h3>
+			<p class="tagP1">类型：标准网站</p>
+			<p class="tagP2">佳思特很好的利用自己的官网，将公司业务领域和特色等清晰明确的写明。同时在公司介绍里展示自己的资质和实力，通过列举客户案例的方式也会提升企业竞争力。</p>
+			<p class="tagP3"><a target="_blank" href="http://www.17sucai.com">查看该产品</a><a target="_blank" href="http://www.17sucai.com">查看案例</a></p>
+		</div>
+	</li>
+	<li>
+		<a href="http://www.17sucai.com" class="tagImg1" target="_blank"><img src="images/bzImg001.jpg" alt="全聚德" /></a>
+		<div class="tagDiv1">
+			<a href="http://www.17sucai.com" class="tagImg2" target="_blank"><img src="images/bzImg001.jpg" alt="全聚德" /></a>
+			<h3>全聚德</h3>
+			<p class="tagP1">类型：标准网站</p>
+			<p class="tagP2">全聚德通过网站很好的宣传了企业品牌。利用图片展示菜系，通过照片和描述介绍了用餐环境，留下完整的地点电话等,方便客户提前了解菜谱和用餐环境。</p>
+			<p class="tagP3"><a href="http://www.17sucai.com" target="_blank">查看该产品</a><a href="http://www.17sucai.com" target="_blank">查看案例</a></p>
+		</div>
+	</li>
+</ul><!--caselist end-->
+
+</body>
+</html>

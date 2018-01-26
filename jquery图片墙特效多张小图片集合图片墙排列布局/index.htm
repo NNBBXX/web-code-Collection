@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jquery图片墙特效多张小图片集合图片墙排列布局</title>
+<meta name="description" content="jquery图片特效用多张小图片集合排列出图片墙布局，jquery图片墙鼠标滑过图片动画提示图片详细信息。jquery下载。">
+
+</head>
+
+<body>
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+/*memberShow*/
+.memberShow{width:459px;height:152px;position:relative;margin:20px auto;}
+.memberShow li{float:left;overflow:hidden;margin:0 1px 1px 0;}
+.memberShow li.upPic{width:101px;height:101px;}
+.memberShow li.memLI{height:50px;}
+.memberShow .popInfo{display:none;position:absolute;top:0;left:0;z-index:10;padding:2px;background:#ff6600;width:203px;height:50px;overflow:hidden;}
+.memberShow .popInfo img{width:50px;position:relative;z-index:3;}
+.memberShow .popInfo p{width:130px;padding:0 10px;height:50px;line-height:24px;color:#fff;position:relative;z-index:2;overflow:hidden;}
+.memberShow .layerMode{display:none;position:absolute;background:#000;filter:Alpha(Opacity=50);opacity:0.5;top:0;left:0;width:100%;height:152px;z-index:3;}
+.memberShow .imgShadow1{
+	-moz-box-shadow:2px 0px 2px #9f9f9f;
+    -webkit-box-shadow:2px 0px 2px #9f9f9f;
+    box-shadow:2px 0px 2px #9f9f9f;
+	/* For IE 8 */
+	-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=90, Color='#5f5f5f')";
+    /* For IE 5.5 - 7 */
+	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=90, Color='#5f5f5f');
+}
+.memberShow .imgShadow2{
+	-moz-box-shadow:-2px 0px 2px #9f9f9f;
+    -webkit-box-shadow:-2px 0px 2px #9f9f9f;
+    box-shadow:-2px 0px 2px #9f9f9f;
+	/* For IE 8 */
+	-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=270, Color='#5f5f5f')";
+    /* For IE 5.5 - 7 */
+	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=270, Color='#5f5f5f');
+}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.js"></script>
+<script type="text/javascript">
+/*会员图片墙*/
+var memberShow = function(val){
+	var mem_div = $("."+val);
+	var memli = mem_div.find("li.memLI");
+	var mem_len = memli.length;
+	var pop_info = mem_div.find(".popInfo");
+	var layer_Mode = mem_div.find(".layerMode");
+	var thumb1 = [];//缓存数组
+	var thumb2 = [];//缓存数组
+	var init_left,init_top;
+	var hovertime;
+	
+	/*图片位置随机显示*/
+	function imgRand(){
+		//随机生成条目，加载随机的样式，插入dom里面，先隐藏
+		for(var i = 0; i<mem_len; i++){
+			thumb1[i] = i;
+			thumb2[i] = i;
+		}
+		
+		var thumb1_len = thumb1.length;
+		var thumb2_len = thumb2.length;
+
+		var index = 0;
+		(function(){
+			if(index >= mem_len){
+				return;
+			}
+			var s_index = parseInt(Math.random()*thumb2_len);	//显示随机数
+			memli.eq(thumb2[s_index]).css('visibility','visible');
+			thumb2.splice(s_index,1);
+			thumb2_len--;
+			index++;
+			window.setTimeout(arguments.callee,50);
+		})();
+	}
+	
+	imgRand();
+	
+	memli.bind({
+		mouseover : function(){
+			THIS = $(this);
+			hovertime = setTimeout(function(){
+				pop_info.css({"display":"block"});
+				var addinfo = THIS.find(".addInfo").html();
+				pop_info.html(addinfo);
+				var position = THIS.position();
+				var new_left,new_top;
+				var cssShadow;
+				var _margin;
+				
+				if(position.left <= mem_div.width() - pop_info.width()){
+					new_left = position.left -2;
+					cssShadow = "imgShadow1";
+					_margin = "left";
+					pop_info.find("img").css("float","left");
+					pop_info.find("p").css({"float":"left","margin-left":"-50px"});
+				}
+				if(position.left > mem_div.width() - pop_info.width()){
+					new_left = position.left - THIS.width()*3 -5;
+					cssShadow = "imgShadow2";
+					_margin = "right";
+					pop_info.find("img").css("float","right");
+					pop_info.find("p").css({"float":"right","margin-right":"-50px","text-align":"right"});
+				}
+				if(position.top <= mem_div.height() - pop_info.height()){
+					new_top = position.top - 2;
+				}
+				if(position.top > mem_div.height() - pop_info.height()){
+					new_top = position.top - THIS.height()*2 - 4;	
+				}
+				
+				pop_info.css({"top":new_top,"left":new_left});
+				pop_info.find("img").addClass(cssShadow);
+				if(_margin == "left"){
+					pop_info.find("p").animate({			   
+						marginLeft: "0px"					   
+					},
+					300
+					);	
+				}
+				else if(_margin == "right"){
+					pop_info.find("p").animate({			   
+						marginRight: "0px"
+					},
+					300
+					);		
+				}
+				layer_Mode.fadeTo("fast", 0.6);
+			},300);
+		},
+		mouseout: function(){
+			clearTimeout(hovertime);
+		}
+		
+	})
+	
+	pop_info.bind('mouseout',function(){
+		layer_Mode.css({"display":"none"});
+		pop_info.css({"display":"none","top":0,"left":0});
+		pop_info.html("");
+	})
+}
+
+
+$(document).ready(function(){
+	memberShow("memberShow");
+})
+</script>
+
+<div class="memberShow">
+	<ul>
+		<li class="upPic"><img src="image/mempic_02.jpg"></li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="Eric仔" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="Eric仔" src="image/39_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="Eric仔" target="_blank"><img src="image/39_avatar_small.jpg" height="50" width="50"></a>
+				<p>Eric仔<br>广州五中<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="love瑶" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="love瑶" src="image/81_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="love瑶" target="_blank"><img src="image/81_avatar_small.jpg" height="50" width="50"></a>
+				<p>love瑶<br><br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="Roy_Chan2011" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="Roy_Chan2011" src="image/09_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="Roy_Chan2011" target="_blank"><img src="image/09_avatar_small.jpg" height="50" width="50"></a>
+				<p>Roy_Chan2011<br><br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="既BT且放纵嘎L君" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="既BT且放纵嘎L君" src="image/20_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="既BT且放纵嘎L君" target="_blank"><img src="image/20_avatar_small.jpg" height="50" width="50"></a>
+				<p>既BT且放纵嘎L君<br><br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="Sugar-陈锐芳" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="Sugar-陈锐芳" src="image/00_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="Sugar-陈锐芳" target="_blank"><img src="image/00_avatar_small.jpg" height="50" width="50"></a>
+				<p>Sugar-陈锐芳<br>芳芳家族<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="Mo3o_Kwok" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="Mo3o_Kwok" src="image/60_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="Mo3o_Kwok" target="_blank"><img src="image/60_avatar_small.jpg" height="50" width="50"></a>
+				<p>Mo3o_Kwok<br>广东白云学院<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="luanup" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="luanup" src="image/36_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="luanup" target="_blank"><img src="image/36_avatar_small.jpg" height="50" width="50"></a>
+				<p>luanup<br><br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="啵板糖" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="啵板糖" src="image/76_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="啵板糖" target="_blank"><img src="image/76_avatar_small.jpg" height="50" width="50"></a>
+				<p>啵板糖<br>芳芳家族<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="___patch" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="___patch" src="image/33_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="___patch" target="_blank"><img src="image/33_avatar_small.jpg" height="50" width="50"></a>
+				<p>___patch<br>广州科技职业技术学院<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="LeMonTea" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="LeMonTea" src="image/21_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="LeMonTea" target="_blank"><img src="image/21_avatar_small.jpg" height="50" width="50"></a>
+				<p>LeMonTea<br><br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="电波奶牛" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="电波奶牛" src="image/86_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="电波奶牛" target="_blank"><img src="image/86_avatar_small.jpg" height="50" width="50"></a>
+				<p>电波奶牛<br><br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="喜欢食鱼即猫" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="喜欢食鱼即猫" src="image/99_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="喜欢食鱼即猫" target="_blank"><img src="image/99_avatar_small.jpg" height="50" width="50"></a>
+				<p>喜欢食鱼即猫<br>广大<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="楊嘉傑" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="楊嘉傑" src="image/55_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="楊嘉傑" target="_blank"><img src="image/55_avatar_small.jpg" height="50" width="50"></a>
+				<p>楊嘉傑<br>-----保密-----<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="nafeeldu" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="nafeeldu" src="image/84_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="nafeeldu" target="_blank"><img src="image/84_avatar_small.jpg" height="50" width="50"></a>
+				<p>nafeeldu<br>广州电视广播大学<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="Helen敏叔叔" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="Helen敏叔叔" src="image/97_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="Helen敏叔叔" target="_blank"><img src="image/97_avatar_small.jpg" height="50" width="50"></a>
+				<p>Helen敏叔叔<br>新华中学<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="peter-明少" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="peter-明少" src="image/12_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="peter-明少" target="_blank"><img src="image/12_avatar_small.jpg" height="50" width="50"></a>
+				<p>peter-明少<br>广州市广播电视大学<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="恢絔_LHM" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="恢絔_LHM" src="image/16_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="恢絔_LHM" target="_blank"><img src="image/16_avatar_small.jpg" height="50" width="50"></a>
+				<p>恢絔_LHM<br>广州广播电视大学<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="飞机头系我系我" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="飞机头系我系我" src="image/81_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="飞机头系我系我" target="_blank"><img src="image/81_avatar_small.jpg" height="50" width="50"></a>
+				<p>飞机头系我系我<br><br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="_Mr-BozI_" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="_Mr-BozI_" src="image/05_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="_Mr-BozI_" target="_blank"><img src="image/05_avatar_small.jpg" height="50" width="50"></a>
+				<p>_Mr-BozI_<br>广东培正学院<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="voice" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="voice" src="image/47_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="voice" target="_blank"><img src="image/47_avatar_small.jpg" height="50" width="50"></a>
+				<p>voice<br><br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="哥就是帅" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="哥就是帅" src="image/61_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="哥就是帅" target="_blank"><img src="image/61_avatar_small.jpg" height="50" width="50"></a>
+				<p>哥就是帅<br>轻工<br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="cc君" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="cc君" src="image/66_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="cc君" target="_blank"><img src="image/66_avatar_small.jpg" height="50" width="50"></a>
+				<p>cc君<br><br></p>
+			</div>
+		</li>
+		<li class="memLI" style="width: 50px; visibility: visible;">
+			<a title="燕然" href="http://www.nnbbxx.net/" target="_blank" class="img"><img alt="燕然" src="image/22_avatar_small.jpg" height="50" width="50"></a>
+			<div class="addInfo">
+				<a href="http://www.nnbbxx.net/" title="燕然" target="_blank"><img src="image/22_avatar_small.jpg" height="50" width="50"></a>
+				<p>燕然<br><br></p>
+			</div>
+		</li>
+	</ul>
+
+	<div class="popInfo"></div>
+	<div class="layerMode"></div>
+	
+</div>
+
+
+
+</body></html>

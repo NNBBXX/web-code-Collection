@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery 水平手风琴制作一个百叶窗效果展示jquery图片切换</title>
+<link type="text/css" rel="stylesheet" href="style/style.css" media="all" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+/* UEFA Players Slider */
+$(document).ready(function(){
+	var movetime=500;	
+	var maxw=252;
+	var avgw= parseInt((1130-maxw-2)/11);	
+	var index;
+	var t=false; //延时执行
+	var _this;
+
+	//标记当前
+	function cur(ele){		
+		ele=$(ele)? $(ele):ele;
+		ele.addClass("cur").siblings().removeClass("cur");	
+	};
+	
+	$("#picon li:eq(0)").addClass("cur").animate({"width":maxw+"px"});
+	
+	$("#picon").find("li").mouseover(function(){									  
+		_this=$(this);		
+		index=$( "#picon li" ).index( $(this)[0] );
+		var act=function (){
+			_this.siblings("li").removeClass("cur");
+			_this.animate({"width":maxw+"px"},{duration:movetime,easing:"easeOutQuart",complete:function(){cur(_this)}}).siblings("li").animate({"width":avgw+"px"},{duration:movetime})
+		}
+		t=setTimeout(act,200);			
+		return false;			
+	}).mouseout(function(){
+		if(t){
+			clearTimeout(t);
+		}
+	});
+
+})
+</script>
+</head>
+
+<body>
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+.main{width:653px;margin:100px auto;border:solid 1px #ddd;}
+.picon{clear:both;height:400px;padding-left:4px;overflow:hidden;background:#000;position:relative;}
+.picon ul{position:absolute;top:0;left:0;height:400px;width:1000px;}
+.picon li{float:left;height:400px;border-right:1px solid #ddd;width:79px;position:relative;overflow:hidden;}
+.picon li.cur div{display:block;}
+.picon li div{position:absolute;bottom:0;left:0;z-index:9;height:76px;background:url(images/shadow.png) repeat;font-family:Arial, Helvetica, sans-serif;font-weight:900;width:100%;color:#fff;display:none;}
+*html .picon li div{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="images/shadow.png");background:none;}
+.picon li div h3{padding:4px 0 0 10px;line-height:30px;font-size:16px;line-height:26px;font-weight:900;}
+.picon li div p{line-height:20px;padding:0px 10px 0;font-size:13px;}
+.picon li div a{color:#fff;text-decoration:none;}
+</style>
+
+	<div class="main">
+		<div class="picon" id="picon">
+			<ul>
+				<li>
+					<img width="252" height="400" alt="jquery flow 图片切换滚动插件 带分页索引按钮控制图片左右滚动" src="images/3485.jpg" />
+					<div>
+						<h3><a href="http://www.17sucai.com/">jquery图片特效</a></h3>
+						<p><a href="http://www.17sucai.com/" target="_blank">jquery flow 图片切换滚动插件 带分页索引按钮控制图片左右滚动</a></p>
+					</div>
+				</li>
+				<li>
+					<img width="252" height="400" alt="jquery图片切换滚动 水平手风琴切换滚动鼠标滑过图片水平切换" src="images/32469.jpg" />
+					<div>
+						<h3><a href="http://www.17sucai.com/">jquery手风琴</a></h3>
+						<p><a href="http://www.17sucai.com/" target="_blank">jquery图片切换滚动 水平手风琴切换滚动鼠标滑过图片水平切换</a></p>
+					</div>
+				</li>
+				<li>
+					<img width="252" height="400" alt="jquery 导航菜单 jquery和CSS3制作一个动画导航的向下滑动框菜单" src="images/3247.jpg" />
+					<div>
+						<h3><a href="http://www.17sucai.com/">jquery导航菜单</a></h3>
+						<p><a href="http://www.17sucai.com/" target="_blank">jquery 导航菜单 jquery和CSS3制作一个动画导航的向下滑动框菜单</a></p>
+					</div>
+				</li>
+				<li>
+					<img width="252" height="400" alt="jquery 文字滚动大全 scroll 支持文字或图片 单行滚动 多行滚动 带按钮控制滚动" src="images/3458.jpg" />
+					<div>
+						<h3><a href="http://www.17sucai.com/">jquery文字特效</a></h3>
+						<p><a href="http://www.17sucai.com/" target="_blank">jquery 文字滚动大全 scroll 支持文字或图片 单行滚动 多行滚动 带按钮控制滚动</a></p>
+					</div>
+				</li>
+				<li>
+					<img width="252" height="400" alt="jquery 文字特效霓虹灯文字效果使用jQuery和CSS" src="images/39.jpg" />
+					<div>
+						<h3><a href="http://www.17sucai.com/">jquery文字特效</a></h3>
+						<p><a href="http://www.17sucai.com/" target="_blank">jquery 文字特效霓虹灯文字效果使用jQuery和CSS</a></p>
+					</div>
+				</li>
+				<li>
+					<img width="252" height="400" alt="jquery表单验证 formvalidator 插件解决整站提交表单验证问题" src="images/34856.jpg" />
+					<div>
+						<h3><a href="http://www.17sucai.com/">jquery表单验证</a></h3>
+						<p><a href="http://www.17sucai.com/" target="_blank">jquery表单验证 formvalidator 插件解决整站提交表单验证问题</a></p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+    
+</body>
+</html>

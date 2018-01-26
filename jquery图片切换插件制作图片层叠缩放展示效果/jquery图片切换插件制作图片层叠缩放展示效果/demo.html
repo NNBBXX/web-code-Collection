@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery图片插件制作图片层叠缩放展示效果</title>
+<meta name="description" content="jquery图片插件制作图片等比列缩放层叠样式，图片叠加展示。点击层叠最上层的图片依次点击缩放图片层叠缩放切换。jQuery下载。" />
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font-family:tahoma, verdana, sans-serif;background:url(images/bg.jpg) #fff no-repeat -16px 0px;color:#272727;font-size:12px;}
+/* preview */
+.preview{line-height:1.7em;width:690px;height:335px;overflow:hidden;margin:20px auto;}
+#sub_col{margin:45px 10px 0px 0px;width:240px;float:left;overflow:hidden;}
+#sub_col h2{padding:0 0 10px 0;line-height:24px;letter-spacing:2px;color:#272727;font-size:16px;font-weight:normal;font-size:1.3em;font-weight:bold;}
+#sub_col h2 small{padding:5px 0 0 0;display:block;letter-spacing:0px;font-size:12px;}
+#sub_col h2 small a{color:#46c8c8;font-weight:normal;}
+#sub_col div{display:none;}
+#sub_col a:hover{border-bottom:#f05392 1px solid;text-decoration:none;}
+#main_col{width:420px;float:right;}
+#gallery{height:330px;overflow:hidden;}
+/* spacegallery 必要元素 */
+.spacegallery{position:relative;overflow:hidden;}
+.spacegallery img{position:absolute;right:0px;}
+.spacegallery a{z-index:1000;position:absolute;width:100%;display:block;background:url(images/blank.gif);height:100%;top:0px;left:0px;}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/spacegallery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){	
+	$("#gallery").spacegallery({loadingClass: "loading", perspective: 100});
+	
+	x = $("#gallery img:last").attr("class");
+	$("#sub_col div."+x).show();
+	
+	$("#gallery a").click(function(){
+		$("#sub_col div").hide();
+		x = $(this).prev("img").prev("img").attr("class");
+		$("#sub_col div."+x).fadeIn();
+	});
+	
+	$(".external").click(function() {
+		window.open( $(this).attr("href") );
+		return false;
+	})
+});
+</script>
+</head>
+<body>
+
+
+	<div class="preview">
+		<div id="sub_col">
+			<div class="p01-text">
+				<h2>jquery图片电子相册展示与jquery图片电子杂志书<small><a class="external" href="http://www.nnbbxx.net/">jquery幻灯片</a></small></h2>
+				<p>jquery图片幻灯片制作电子相册，jQuery带有翻页效果的图片电子杂志书。支持收藏，翻页功能的电子相册。jQuery下载。</p>
+			</div>
+			<div class="p02-text">
+				<h2>jquery浮动定位层导航描点上下滚动的浮动导航<small><a class="external" href="http://www.nnbbxx.net/">jquery导航菜单</a></small></h2>
+				<p>jquery浮动层制作导航定位层，浮动层导航随页面描点，上下滚动到相应位置。jquery下载</p>
+			</div>
+			<div class="p03-text">
+				<h2>js导航菜单插件制作js顶部导航菜单和侧面js导航菜单<small><a class="external" href="http://www.nnbbxx.net/">jquery导航菜单</a></small></h2>
+				<p>js导航菜单插件制作js滑动二级菜单两种，顶部滑动多级下拉垂直js导航菜单和侧面滑动多级水平js导航菜单。js代码。</p>
+			</div>
+			<div class="p04-text">
+				<h2>flash图片特效左右按钮控制图片折叠切换效果<small><a class="external" href="http://www.nnbbxx.net/">flash图片特效</a></small></h2>
+				<p>flash图片特效制作左右两侧按钮控制图片折叠切换，xml外调图片折叠切换效果。含flash源码免费下载</p>
+			</div>
+			<div class="p05-text">
+				<h2>flash特效制作flash图片滚动带按钮控制左右图片滚动<small><a class="external" href="http://www.nnbbxx.net/">flash图片特效</a></small></h2>
+				<p>flash特效制作一个左右带按钮控制图片左右滚动的flash图片滚动特效，支持flash源码下载。</p>
+			</div>
+			<div class="p06-text">
+				<h2>div+css多张背景图片规范写法图片透明度显示<small><a class="external" href="http://www.nnbbxx.net/">div+css布局</a></small></h2>
+				<p>div+css教程多张背景图片最规范的书写方法，当鼠标滑过A标签背景图片透明度显示。</p>
+			</div>
+			<div class="p07-text">
+				<h2>div+css布局通过样式来控制让图片垂直居中与水平居中显示<small><a class="external" href="http://www.nnbbxx.net/">div+css布局</a></small></h2>
+				<p>div+css教程制作(迅雷面试题)之各大网站TOP排行榜或新闻列表最标准的div+css布局，用div css样式表代码写法。</p>
+			</div>
+			<div class="p08-text">
+				<h2>jquery框架与coffeescript制作iphone苹果IOS手机主屏幕触摸效果<small><a class="external" href="http://www.nnbbxx.net/">html5特效</a></small></h2>
+				<p>jquery框架与coffeescript结合制作iphone苹果手机的IOS手机界面主触屏手指划过屏幕整个界面图片左右滑动的触摸效果。jquery下载。</p>
+			</div>
+		</div>
+		<div id="main_col">
+			<div id="gallery" class="spacegallery">
+				<img width="421" height="301" class="p01-text" alt="jquery 特效" src="images/arge.gif" />
+				<img width="421" height="301" class="p02-text" alt="jquery 特效" src="images/fizjomed.gif" />
+				<img width="421" height="301" class="p03-text" alt="jquery 特效" src="images/kurs.gif" />
+				<img width="421" height="301" class="p04-text" alt="jquery 特效" src="images/rejestrator.gif" />
+				<img width="421" height="301" class="p05-text" alt="jquery 特效" src="images/sunsenergy.gif" />
+				<img width="421" height="301" class="p06-text" alt="jquery 特效" src="images/teatry.gif" />
+				<img width="421" height="301" class="p07-text" alt="jquery 特效" src="images/uniwersytet.gif" />
+				<img width="421" height="301" class="p08-text" alt="jquery 特效" src="images/valant.gif" />
+			</div>
+		</div>
+	</div><!--preview end-->
+
+</body>
+</html>

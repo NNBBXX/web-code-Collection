@@ -1,0 +1,58 @@
+﻿/* slider root element */
+.slider
+{
+    background: #d5d5d5;
+    height: 7px;
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    clear: right;
+    top: 0px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: inset 0 0 8px #000;
+    margin: 10px 0 10px 0;
+}
+
+/* progress bar (enabled with progress: true) */
+.progress
+{
+    height: 7px;
+    position: relative;
+    background: #5389c5; /* Old browsers */
+	background: -moz-linear-gradient(top, #5389c5 0%, #4775a9 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5389c5), color-stop(100%,#4775a9)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #5389c5 0%,#4775a9 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #5389c5 0%,#4775a9 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #5389c5 0%,#4775a9 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #5389c5 0%,#4775a9 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5389c5', endColorstr='#4775a9',GradientType=0 ); /* IE6-9 */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    top: 0px;
+    border: 1px solid #4b7bb1;
+
+    -moz-box-shadow: inset 0 .7px 0 0 rgba(255, 255, 255, 0.3);
+	-webkit-box-shadow: inset 0 .7px 0 0 rgba(255, 255, 255, 0.3);
+	box-shadow: inset 0 .7px 0 0 rgba(255, 255, 255, 0.3);
+}
+
+/* drag handle */
+.handle
+{
+    background: url(../images/handle.png) repeat-x center;
+    height: 16px;
+    width: 16px;
+    top: -5px;
+    position: absolute;
+    display: block;
+    margin-top: 1px;
+    cursor: pointer;
+
+}
+
+/* the input field */
+.range
+{
+    display: none;
+}
